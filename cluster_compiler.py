@@ -15,11 +15,6 @@ try:
 except ImportError:
     OpenAI = None
 
-try:
-    from verify_openai_chat_config import client as SHARED_CLIENT
-except Exception:
-    SHARED_CLIENT = None
-
 
 SYSTEM_PROMPT = """You are a skill workflow and policy compiler.
 Input is one query and a list of related skills.
@@ -143,11 +138,9 @@ def extract_json(text):
 def get_client():
     """
     Purpose: Resolve one reusable OpenAI-compatible client for compiler requests.
-    Input: Local shared client config or environment variables.
+    Input: Environment variables.
     Output: A ready-to-use OpenAI-compatible client.
     """
-    if SHARED_CLIENT is not None:
-        return SHARED_CLIENT
     if OpenAI is None:
         raise RuntimeError("openai package is required")
     api_key = os.getenv("OPENAI_API_KEY", "")

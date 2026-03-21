@@ -2,9 +2,9 @@
 
 ## files
 
+- `scraper.py`: fetch clawhub skill metadata and SKILL.md files
 - `cluster_compiler.py`: read grouped skill json, call llm, output `md + policy.json`
 - `security_interceptor.py`: enforce file, exec, capability policy
-- `verify_openai_chat_config.py`: verify llm api config
 - `RESEARCH.md`: research plan
 
 ## env
@@ -15,11 +15,18 @@ export OPENAI_API_KEY=your_key
 export SKILL_CLUSTERING_MODEL=google/gemini-3.1-flash-lite-preview
 ```
 
-## run llm check
+## run scraper
 
 ```bash
-python3 verify_openai_chat_config.py
+python3 scraper.py -n 100 --output .
 ```
+
+outputs:
+
+- `output/skills/*.md`
+- `output/descriptions/*.json`
+- `output/index.json`
+- `output/index.csv`
 
 ## run compiler
 
