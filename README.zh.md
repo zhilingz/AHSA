@@ -204,35 +204,6 @@ AHSA 有 2 层：
 - 运行时安全拦截器
 - 可审计的 agent 执行边界
 
-## 路线图
-
-### phase 0
-
-- 文献调研
-- 形式化定义
-- 原型设计
-
-### phase 1
-
-- 实现 trace 收集
-- 构建 skill 与元数据数据集
-
-### phase 2
-
-- 实现 profile generation
-- 增强语义泛化能力
-
-### phase 3
-
-- 实现运行时 enforcement
-- 增加 policy enforcement point
-
-### evaluation
-
-- 构建测试集
-- 测量 false positive 和 false negative
-- 进行攻击实验
-
 ## 文件
 
 - `scraper.py`: 抓取 ClawHub skill 元数据和 `SKILL.md`
@@ -333,20 +304,3 @@ except SecurityInterceptionError as e:
     print(e.to_dict())
 PY
 ```
-
-## 当前状态
-
-这个仓库是一个与 AHSA 研究方案对齐的最小原型。
-
-当前已包含：
-
-- 数据集构建
-- 基于 LLM 的 policy 编译
-- 运行时 policy enforcement
-
-当前还未包含：
-
-- 完整 trace-run 基础设施
-- 超出当前 prompt 输出能力的语义泛化
-- hitl 审批流
-- benchmark 自动化
