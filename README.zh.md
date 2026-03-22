@@ -241,8 +241,14 @@ AHSA 有 2 层：
 
 ## 环境变量
 
+LLM 接口地址需要由用户自行配置。
+
+代码中不再内置默认的 `OPENAI_BASE_URL` 或 `OPENAI_API_KEY`。
+
+运行 compiler 前需要显式设置：
+
 ```bash
-export OPENAI_BASE_URL=https://ie-crs.haoxiang.ai/v1
+export OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
 export OPENAI_API_KEY=your_key
 export SKILL_CLUSTERING_MODEL=google/gemini-3.1-flash-lite-preview
 ```

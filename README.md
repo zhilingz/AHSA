@@ -250,8 +250,14 @@ This repository includes checked-in runtime examples under `examples/`.
 
 ## env
 
+You must configure the LLM endpoint yourself.
+
+The code does not include any default API base URL or API key.
+
+Set all required variables before running the compiler:
+
 ```bash
-export OPENAI_BASE_URL=https://ie-crs.haoxiang.ai/v1
+export OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
 export OPENAI_API_KEY=your_key
 export SKILL_CLUSTERING_MODEL=google/gemini-3.1-flash-lite-preview
 ```

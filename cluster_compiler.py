@@ -143,11 +143,14 @@ def get_client():
     """
     if OpenAI is None:
         raise RuntimeError("openai package is required")
+    base_url = os.getenv("OPENAI_BASE_URL", "").strip()
     api_key = os.getenv("OPENAI_API_KEY", "")
+    if not base_url:
+        raise RuntimeError("OPENAI_BASE_URL is required")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY is required")
     return OpenAI(
-        base_url=os.getenv("OPENAI_BASE_URL", "https://ie-crs.haoxiang.ai/v1"),
+        base_url=base_url,
         api_key=api_key,
     )
 
