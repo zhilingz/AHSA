@@ -1,0 +1,53 @@
+{
+  "cluster_type": "agentic_coding_monitoring",
+  "permissions": {
+    "file_system": {
+      "default_action": "deny",
+      "rules": [
+        {
+          "method": [
+            "read",
+            "write"
+          ],
+          "path_glob": [
+            "./**/*"
+          ]
+        }
+      ]
+    },
+    "exec": {
+      "allowed": true,
+      "restricted_cmds": [
+        "rm -rf",
+        "mkfs"
+      ]
+    },
+    "process": {
+      "allowed": true
+    },
+    "web_search": {
+      "allowed": true
+    },
+    "web_fetch": {
+      "allowed": true
+    },
+    "cron": {
+      "allowed": true
+    },
+    "message": {
+      "allowed": true
+    },
+    "sessions_spawn": {
+      "allowed": true
+    },
+    "sessions_list": {
+      "allowed": true
+    },
+    "sessions_send": {
+      "allowed": true
+    },
+    "subagents": {
+      "allowed": true
+    }
+  }
+}

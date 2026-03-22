@@ -9,6 +9,8 @@ import os
 from datetime import datetime, timezone
 from fnmatch import fnmatch
 
+COMPILED_POLICY_DEFAULT_RESTRICTED_CMDS = ["rm -rf", "mkfs"]
+
 
 class SecurityInterceptionError(PermissionError):
     """
@@ -188,9 +190,9 @@ class PolicyEngine:
         Input: Policy data and runtime paths.
         Output: An initialized policy engine.
         """
-        self.policy = policy
+        self.policy = self._normalize_policy(policy)
         self.project_root = os.path.realpath(project_root)
-        permissions = policy.get("permissions", {})
+        permissions = self.policy.get("permissions", {})
         self.file_system = FileSystemInterceptor(permissions.get("file_system", {}), self.project_root)
         self.compute = ComputeInterceptor(permissions.get("exec", {}))
         self.audit = AuditLogger(audit_log_path)
@@ -253,6 +255,43 @@ class PolicyEngine:
         if capability == "exec":
             return self.check_exec(target)
         return self.check_capability(capability, target)
+
+    def _normalize_policy(self, policy):
+        """
+        Purpose: Convert compiler policy output into the runtime enforcement schema.
+        Input: A raw policy dictionary.
+        Output: A normalized policy dictionary.
+        """
+        permissions = policy.get("permissions", {})
+        if "file_system" in permissions or "exec" in permissions:
+            return policy
+        normalized_permissions = {}
+        filesystem_methods = permissions.get("filesystem", [])
+        if filesystem_methods:
+            normalized_permissions["file_system"] = {
+                "default_action": "deny",
+                "rules": [
+                    {
+                        "method": filesystem_methods,
+                        "path_glob": ["./**/*"],
+                    }
+                ],
+            }
+        compute_actions = permissions.get("compute", [])
+        normalized_permissions["exec"] = {
+            "allowed": "exec" in compute_actions,
+            "restricted_cmds": COMPILED_POLICY_DEFAULT_RESTRICTED_CMDS if "exec" in compute_actions else [],
+        }
+        for action in compute_actions:
+            if action != "exec":
+                normalized_permissions[action] = {"allowed": True}
+        for group in ["network", "media", "schedule", "agent", "system"]:
+            for action in permissions.get(group, []):
+                normalized_permissions[action] = {"allowed": True}
+        return {
+            "cluster_type": policy.get("cluster_type"),
+            "permissions": normalized_permissions,
+        }
 
     def _check_target(self, capability, policy, target):
         """

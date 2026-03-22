@@ -1,41 +1,27 @@
 {
-  "cluster_type": "test_cluster",
+  "cluster_type": "agentic_coding_monitoring",
   "permissions": {
-    "file_system": {
-      "default_action": "deny",
-      "rules": [
-        {
-          "method": [
-            "read"
-          ],
-          "path_glob": [
-            "./README.md",
-            "./README.zh.md"
-          ]
-        },
-        {
-          "method": [
-            "write",
-            "append"
-          ],
-          "path_glob": [
-            "./examples/interceptor_run/*"
-          ]
-        }
-      ]
-    },
-    "exec": {
-      "allowed": true,
-      "restricted_cmds": [
-        "rm -rf",
-        "mkfs"
-      ]
-    },
-    "message": {
-      "allowed": true,
-      "allowed_targets": [
-        "feishu:*"
-      ]
-    }
+    "filesystem": [
+      "read",
+      "write"
+    ],
+    "compute": [
+      "exec",
+      "process"
+    ],
+    "network": [
+      "web_search",
+      "web_fetch"
+    ],
+    "schedule": [
+      "cron",
+      "message"
+    ],
+    "agent": [
+      "sessions_spawn",
+      "sessions_list",
+      "sessions_send",
+      "subagents"
+    ]
   }
 }

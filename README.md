@@ -351,35 +351,19 @@ Current note:
 
 ```bash
 python3 - <<'PY'
-import json
 from pathlib import Path
 from security_interceptor import PolicyEngine, SecurityInterceptionError
 
 root = Path(".").resolve()
-policy = {
-    "cluster_type": "test",
-    "permissions": {
-        "file_system": {
-            "default_action": "deny",
-            "rules": [{"method": ["read"], "path_glob": ["./*"]}]
-        },
-        "exec": {
-            "allowed": True,
-            "restricted_cmds": ["rm -rf"]
-        },
-        "message": {
-            "allowed": True,
-            "allowed_targets": ["feishu:*"]
-        }
-    }
-}
-
-path = root / "policy.json"
-path.write_text(json.dumps(policy, indent=2) + "\n", encoding="utf-8")
-engine = PolicyEngine.from_file(path, project_root=root)
+path = root / "examples" / "compiler_run" / "query_results_codex_vibe_workflow.policy.json"
+engine = PolicyEngine.from_file(path, project_root=root, audit_log_path=str(root / "examples" / "interceptor_run" / "audit.jsonl"))
 print(engine.check_file("read", "README.md"))
 print(engine.check_exec("python3 -V"))
-print(engine.check_capability("message", "feishu:test"))
+print(engine.check_capability("message", "feishu:group1"))
+try:
+    engine.check_file("read", "../proposal.md")
+except SecurityInterceptionError as e:
+    print(e.to_dict())
 try:
     engine.check_exec("rm -rf /tmp/x")
 except SecurityInterceptionError as e:
@@ -401,5 +385,12 @@ Expected result shape:
 Included example files:
 
 - `examples/interceptor_run/policy.json`
+- `examples/interceptor_run/normalized_policy.json`
 - `examples/interceptor_run/result.json`
 - `examples/interceptor_run/audit.jsonl`
+
+This example uses the compiled policy from:
+
+- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
+
+The interceptor reads the compiler output policy and normalizes it into the runtime enforcement schema before checking operations.

@@ -11,6 +11,10 @@
     "target": "feishu:group1"
   },
   {
+    "capability": "web_search",
+    "target": "https://example.com"
+  },
+  {
     "error": "Security Interception",
     "capability": "file_system",
     "reason": "Path escapes project root",
@@ -21,11 +25,5 @@
     "capability": "exec",
     "reason": "Command blocked by restricted list",
     "target": "rm -rf /tmp/x"
-  },
-  {
-    "error": "Security Interception",
-    "capability": "message",
-    "reason": "Target not in allowed scope",
-    "target": "telegram:group1"
   }
 ]
