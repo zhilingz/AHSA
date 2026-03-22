@@ -239,6 +239,15 @@ Possible directions:
 - `cluster_compiler.py`: read grouped skill json and use an LLM to generate workflow markdown and policy json
 - `security_interceptor.py`: enforce file, command, and capability policy before runtime execution
 
+## examples
+
+This repository includes checked-in runtime examples under `examples/`.
+
+- `examples/compiler_input/`: one grouped skill input file
+- `examples/compiler_run/`: one workflow markdown and one policy json generated from that input
+- `examples/interceptor_run/`: one test policy, one audit log, and one block/pass result file
+- `examples/scraper_run/output/`: one small scraped dataset with skill markdown, descriptions, and indexes
+
 ## env
 
 ```bash
@@ -259,6 +268,22 @@ Outputs:
 - `output/descriptions/*.json`
 - `output/index.json`
 - `output/index.csv`
+
+Expected example structure:
+
+```text
+examples/scraper_run/output/
+├── descriptions/
+├── skills/
+├── index.csv
+└── index.json
+```
+
+Included example files:
+
+- `examples/scraper_run/output/skills/self-improving-agent.md`
+- `examples/scraper_run/output/descriptions/self-improving-agent.json`
+- `examples/scraper_run/output/index.json`
 
 ## run compiler
 
@@ -287,6 +312,30 @@ Outputs:
 
 - `generated/*.md`
 - `generated/*.policy.json`
+
+Expected output shape:
+
+- one markdown file with:
+  - `cluster_type`
+  - `query`
+  - `workflow`
+  - `Situation | Action | Permission | Scope`
+- one policy json file with:
+  - `cluster_type`
+  - `permissions`
+
+Included example files:
+
+- `examples/compiler_input/query_results_codex_vibe_workflow.json`
+- `examples/compiler_run/query_results_codex_vibe_workflow.md`
+- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
+- `examples/compiler_run/notes.txt`
+
+Current note:
+
+- compiler output depends on external model availability
+- one live run failed with upstream `502`
+- the checked-in `compiler_run` files are from a successful run of the same input
 
 ## run interceptor
 
@@ -327,6 +376,23 @@ except SecurityInterceptionError as e:
     print(e.to_dict())
 PY
 ```
+
+Expected result shape:
+
+- allowed file read returns `{"method": "...", "path": "..."}`
+- allowed command returns `{"command": "..."}`
+- allowed capability returns `{"capability": "...", "target": "..."}`
+- blocked operations return:
+  - `error`
+  - `capability`
+  - `reason`
+  - `target`
+
+Included example files:
+
+- `examples/interceptor_run/policy.json`
+- `examples/interceptor_run/result.json`
+- `examples/interceptor_run/audit.jsonl`
 
 ## status
 

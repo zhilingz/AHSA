@@ -1,0 +1,25 @@
+{
+  "slug": "gog",
+  "display_name": "Gog",
+  "summary": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+  "stars": 743,
+  "downloads": 116996,
+  "installs_all_time": 2547,
+  "installs_current": 2475,
+  "comments": 36,
+  "versions": 1,
+  "created_at": 1767545346060,
+  "updated_at": 1773464556555,
+  "latest_version": "1.0.0",
+  "changelog": "",
+  "license": null,
+  "tags": {
+    "latest": "1.0.0"
+  },
+  "metadata": {
+    "os": null,
+    "systems": null
+  },
+  "rank": 3,
+  "clawhub_url": "https://clawhub.ai/skills/gog"
+}

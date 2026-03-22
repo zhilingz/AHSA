@@ -1,0 +1,6 @@
+{"time": "2026-03-22T08:31:11.750093+00:00", "cluster_type": "test_cluster", "capability": "file_system", "target": "README.md", "decision": "pass"}
+{"time": "2026-03-22T08:31:11.750724+00:00", "cluster_type": "test_cluster", "capability": "exec", "target": "python3 -V", "decision": "pass"}
+{"time": "2026-03-22T08:31:11.750811+00:00", "cluster_type": "test_cluster", "capability": "message", "target": "feishu:group1", "decision": "pass"}
+{"time": "2026-03-22T08:31:11.750998+00:00", "cluster_type": "test_cluster", "capability": "file_system", "target": "../proposal.md", "decision": "block", "reason": "Path escapes project root"}
+{"time": "2026-03-22T08:31:11.751128+00:00", "cluster_type": "test_cluster", "capability": "exec", "target": "rm -rf /tmp/x", "decision": "block", "reason": "Command blocked by restricted list"}
+{"time": "2026-03-22T08:31:11.751208+00:00", "cluster_type": "test_cluster", "capability": "message", "target": "telegram:group1", "decision": "block", "reason": "Target not in allowed scope"}

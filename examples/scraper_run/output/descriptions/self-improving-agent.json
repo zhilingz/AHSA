@@ -1,0 +1,22 @@
+{
+  "slug": "self-improving-agent",
+  "display_name": "self-improving-agent",
+  "summary": "Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Clau...",
+  "stars": 2161,
+  "downloads": 235161,
+  "installs_all_time": 3767,
+  "installs_current": 3632,
+  "comments": 50,
+  "versions": 16,
+  "created_at": 1767632598365,
+  "updated_at": 1773583913953,
+  "latest_version": "3.0.4",
+  "changelog": "no changes re-uploaded after vanishing from clawhub",
+  "license": null,
+  "tags": {
+    "latest": "3.0.4"
+  },
+  "metadata": null,
+  "rank": 1,
+  "clawhub_url": "https://clawhub.ai/skills/self-improving-agent"
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "method": "read",
+    "path": "/home/zq/zzl/code/AHSA/AHSA/README.md"
+  },
+  {
+    "command": "python3 -v"
+  },
+  {
+    "capability": "message",
+    "target": "feishu:group1"
+  },
+  {
+    "error": "Security Interception",
+    "capability": "file_system",
+    "reason": "Path escapes project root",
+    "target": "/home/zq/zzl/code/AHSA/proposal.md"
+  },
+  {
+    "error": "Security Interception",
+    "capability": "exec",
+    "reason": "Command blocked by restricted list",
+    "target": "rm -rf /tmp/x"
+  },
+  {
+    "error": "Security Interception",
+    "capability": "message",
+    "reason": "Target not in allowed scope",
+    "target": "telegram:group1"
+  }
+]

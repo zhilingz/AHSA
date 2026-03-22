@@ -1,0 +1,72 @@
+{
+  "cluster_type": "agentic_coding_workflow",
+  "permissions": {
+    "run_codex_background_jobs": [
+      "local_workdir",
+      "codex_job_runtime"
+    ],
+    "write_task_logs": [
+      "task_logs"
+    ],
+    "write_patch_artifacts": [
+      "patch_artifacts"
+    ],
+    "read_workdir": [
+      "local_workdir"
+    ],
+    "write_workdir": [
+      "local_workdir"
+    ],
+    "read_project_rules": [
+      "project_rule_files"
+    ],
+    "write_project_rules": [
+      "project_rule_files"
+    ],
+    "read_task_state": [
+      "workflow_state"
+    ],
+    "write_task_state": [
+      "workflow_state"
+    ],
+    "send_notifications": [
+      "feishu_messages",
+      "status_recipients"
+    ],
+    "read_notification_targets": [
+      "status_recipients"
+    ],
+    "write_collaboration_updates": [
+      "feishu_docs",
+      "feishu_tables",
+      "feishu_messages"
+    ],
+    "spawn_subtasks": [
+      "agent_sessions",
+      "parallel_task_queue"
+    ],
+    "coordinate_multi_agent_sessions": [
+      "agent_sessions",
+      "aggregated_status_board"
+    ],
+    "read_subtask_status": [
+      "agent_sessions",
+      "parallel_task_queue"
+    ],
+    "aggregate_results": [
+      "aggregated_status_board"
+    ],
+    "read_scheduler_config": [
+      "cron_config",
+      "timer_config"
+    ],
+    "validate_cron_safety": [
+      "cron_config",
+      "timer_config"
+    ],
+    "read_job_logs": [
+      "scheduler_logs",
+      "task_logs"
+    ]
+  }
+}

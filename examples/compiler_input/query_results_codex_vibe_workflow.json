@@ -1,0 +1,1039 @@
+{
+  "query": "一个向codex自动发送指令，并监控vibe coding动态的工作流",
+  "elapsed_seconds": 0.561,
+  "count": 67,
+  "results": [
+    {
+      "slug": "fast-claude-code",
+      "display_name": "Fast Claude Code (Pending)",
+      "summary": "Claude Code 任务完成回调 Runtime。支持 Single / Interactive / Team 三种模式， 通过回调机制自动通知任务完成，无需轮询。 Use when: 需要运行 Claude Code 任务并在完成时获得通知。 NOT for: 简单的文件读写（直接用 read/write...",
+      "stars": 1,
+      "downloads": 38,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4233,
+      "vector_score": 0.7509245276451111,
+      "description": "Claude Code 任务完成回调 Runtime。支持 Single / Interactive / Team 三种模式， 通过回调机制自动通知任务完成，无需轮询。 Use when: 需要运行 Claude Code 任务并在完成时获得通知。 NOT for: 简单的文件读写（直接用 read/write 工具）。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/fast-claude-code"
+    },
+    {
+      "slug": "use-claudecode",
+      "display_name": "use-claudecode",
+      "summary": "A universal MCP-compatible tool/skill that empowers ANY AI Agent to natively call the local Anthropic Claude Code CLI. Ideal for code refactoring, large scal...",
+      "stars": 0,
+      "downloads": 90,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9995,
+      "vector_score": 0.7499529719352722,
+      "description": "A universal MCP-compatible tool/skill that empowers ANY AI Agent to natively call the local Anthropic Claude Code CLI. Ideal for code refactoring, large scale code generation, terminal execution, bash shell commands, running tests, local environment modification, and bypassing token limits.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/use-claudecode"
+    },
+    {
+      "slug": "codex-dev",
+      "display_name": "Skill",
+      "summary": "Run Codex as a background local job with an immediate receipt, saved logs and patch artifacts, optional Telegram notifications, and explicit workdir support.",
+      "stars": 0,
+      "downloads": 104,
+      "tags": [
+        "async",
+        "codex",
+        "latest",
+        "telegram"
+      ],
+      "rank": 9429,
+      "vector_score": 0.7473292350769043,
+      "description": "Run Codex as a background local job with an immediate receipt, saved logs and patch artifacts, optional Telegram notifications, and explicit workdir support.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/codex-dev"
+    },
+    {
+      "slug": "feishu-ai-coding-assistant",
+      "display_name": "Feishu Ai Coding Assistant",
+      "summary": "通过调用子 Agent 管理和执行多任务编程工作流，支持多编程工具选择、编码与研究双运行时及任务持久化。",
+      "stars": 0,
+      "downloads": 50,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9092,
+      "vector_score": 0.7441302537918091,
+      "description": "通过调用子 Agent 管理和执行多任务编程工作流，支持多编程工具选择、编码与研究双运行时及任务持久化。",
+      "description_source": "description_summary",
+      "clawhub_url": "https://clawhub.ai/skills/feishu-ai-coding-assistant"
+    },
+    {
+      "slug": "silivillepro",
+      "display_name": "siliville",
+      "summary": "Gives any AI agent a persistent identity in SiliVille (硅基小镇) — a multiplayer AI-native metaverse. Farm, steal crops, post to the town feed, comment on trendi...",
+      "stars": 0,
+      "downloads": 36,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8804,
+      "vector_score": 0.7321687936782837,
+      "description": "Gives any AI agent a persistent identity in SiliVille (硅基小镇) — a multiplayer AI-native metaverse. Farm, steal crops, post to the town feed, comment on trending debates, build social graphs, and store long-term memories via a simple REST API.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/silivillepro"
+    },
+    {
+      "slug": "feishu",
+      "display_name": "Feishu",
+      "summary": "飞书深度集成技能。不是简单的消息桥接，而是你的数字指挥中枢。专为中国企业高压协作环境设计，理解“分寸”与“效率”两套并行规则，把消息、审批、会议、文档、多维表格、日程与邮箱，压缩成有优先级、可执行的行动链。",
+      "stars": 2,
+      "downloads": 860,
+      "tags": [
+        "china",
+        "collaboration",
+        "enterprise",
+        "feishu",
+        "lark",
+        "latest"
+      ],
+      "rank": 2970,
+      "vector_score": 0.726330041885376,
+      "description": "飞书深度集成技能。不是简单的消息桥接，而是你的数字指挥中枢。专为中国企业高压协作环境设计，理解“分寸”与“效率”两套并行规则，把消息、审批、会议、文档、多维表格、日程与邮箱，压缩成有优先级、可执行的行动链。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/feishu"
+    },
+    {
+      "slug": "multi-team-coding",
+      "display_name": "Multi Team Coding",
+      "summary": "完整的 AI 驱动编程工作流。包含：(1) 多团队并行开发（OpenClaw + Claude Code/Codex/OpenCode），(2) 一人公司模式（单日 90+ 提交），(3) Playwright 自动化测试（E2E/API/视觉/性能），(4) 自动 PR 管理和合并。适用于独立开发者、初创团队、...",
+      "stars": 0,
+      "downloads": 61,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9033,
+      "vector_score": 0.7262179255485535,
+      "description": "完整的 AI 驱动编程工作流。包含：(1) 多团队并行开发（OpenClaw + Claude Code/Codex/OpenCode），(2) 一人公司模式（单日 90+ 提交），(3) Playwright 自动化测试（E2E/API/视觉/性能），(4) 自动 PR 管理和合并。适用于独立开发者、初创团队、开源项目维护。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/multi-team-coding"
+    },
+    {
+      "slug": "multi-agent-cn",
+      "display_name": "Multi-Agent CN",
+      "summary": "通用多Agent调度系统（中文版）：将主Agent变为纯调度员，所有任务通过 sessions_spawn 委派给5个持久化子Agent。支持轮询调度、先回复再派遣协议、 sessionKey固定复用。用户可自定义调度员角色和子Agent名称/人设。",
+      "stars": 18,
+      "downloads": 2391,
+      "tags": [
+        "latest"
+      ],
+      "rank": 245,
+      "vector_score": 0.7260125279426575,
+      "description": "通用多Agent调度系统（中文版）：将主Agent变为纯调度员，所有任务通过 sessions_spawn 委派给5个持久化子Agent。支持轮询调度、先回复再派遣协议、 sessionKey固定复用。用户可自定义调度员角色和子Agent名称/人设。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/multi-agent-cn"
+    },
+    {
+      "slug": "three-minds",
+      "display_name": "Three Minds",
+      "summary": "三个能干活的 AI 分身协作系统。用 Claude Code 启动三个不同人设的 coding agent，共享同一个工作目录，多轮协作直到达成共识。适用于代码审查、方案评审、重构任务等需要多视角协作的场景。",
+      "stars": 4,
+      "downloads": 1579,
+      "tags": [
+        "latest"
+      ],
+      "rank": 1230,
+      "vector_score": 0.7183740139007568,
+      "description": "三个能干活的 AI 分身协作系统。用 Claude Code 启动三个不同人设的 coding agent，共享同一个工作目录，多轮协作直到达成共识。适用于代码审查、方案评审、重构任务等需要多视角协作的场景。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/three-minds"
+    },
+    {
+      "slug": "openclaw-security-patrol",
+      "display_name": "openclaw-security-patrol",
+      "summary": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。 使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。 触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。 运行依赖： 必需：Node.js...",
+      "stars": 0,
+      "downloads": 79,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8657,
+      "vector_score": 0.7176313400268555,
+      "description": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。\n使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。\n触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。\n\n运行依赖：\n  必需：Node.js v18+、openclaw CLI（用于定时任务管理）\n  脚本调用的系统命令（缺失时对应检查项会 SKIP，不影响其他项）：\n    macOS：find、lsof、netstat、ps、last、lastb、grep、awk、cat、sudo\n    Linux：find、ss、lsof、ps、journalctl、last、lastb、grep、awk、cat、sudo\n    Windows：wmic、netstat、tasklist、findstr\n\n默认行为：本地离线模式，不产生任何网络请求。\n⚠️ --push 高风险提示：启用后会向远端发送设备标识（MAC 地址、主机名、持久化 agent_id）和本机完整 Skill 清单，且 agent_id 会在本机永久保存并每次复用。--push 只能在用户单次手动运行时使用；cron 定时任务中严禁包含 --push，以防止设备信息被长期自动上报。\n数据上报端点（仅 --push 模式，由本技能作者运营的 Changeway 云端威胁情报服务）：\n  https://auth.ctct.cn:10020/changeway-open/api/pushAuditData\n  https://auth.ctct.cn:10020/changeway-open/api/skills/assessment\n数据边界说明：脚本对每项检查生成两个字段——detail（完整命令输出，仅本地落盘，绝不上传）和 brief（人工编写的结果摘要，--push 模式下上传）。上传的 data[] 通过 `JSON_DATA.map(({ item, brief }) => ({ item, brief }))` 构造（脚本第 995 行），明确排除 detail 字段；包含 detail 的完整 outputObj 仅写入本地磁盘（脚本第 984 行）。\n签名机制：请求头 X-SIGN 为 SHA-256(mac + hostname + timestamp + nonce) 的十六进制摘要，无独立密钥，仅用于服务端防重放校验。\nchild_process 使用声明：\n  脚本通过 Node.js 内置的 spawnSync（非 exec/execSync）调用系统命令，参数以数组形式传入，不经过 shell 字符串拼接，无命令注入风险。\n  所有 spawnSync 调用（共 13 处，均位于 runSafeCommand() 函数的 switch/case 白名单内）只允许以下固定命令名，白名单之外的命令无法被执行：\n    openclaw、find、pgrep、journalctl、log、ss、ps、lsof、diff、\n    wevtutil、netstat、tasklist、powershell\n  以上命令均为只读系统状态查询（进程、网络、日志、文件列表），不执行写入、删除或提权操作。\n本地写入：扫描报告保存至 ~/.openclaw/security-reports/（含 report-YYYY-MM-DD.txt 和 report.json），Skill 哈希基线保存至 ~/.openclaw/skill-hashes/，设备 ID 保存至 ~/.openclaw/.agent-id，首次运行标记文件 ~/.openclaw/.audit-first-run。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/openclaw-security-patrol"
+    },
+    {
+      "slug": "deep-research-skill",
+      "display_name": "Deep Research",
+      "summary": "深度调研的多Agent编排工作流：把一个调研目标拆成可并行子目标，用 Claude Code 非交互模式（`claude -p`）运行子进程；联网与采集优先使用已安装的 skills，其次使用 MCP 工具；用脚本聚合子结果并分章精修，最终交付\"成品报告文件路径 + 关键结论/建议摘要\"。用于：系统性网页/资料调...",
+      "stars": 1,
+      "downloads": 212,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4720,
+      "vector_score": 0.7167240381240845,
+      "description": "深度调研的多Agent编排工作流：把一个调研目标拆成可并行子目标，用 Claude Code 非交互模式（`claude -p`）运行子进程；联网与采集优先使用已安装的 skills，其次使用 MCP 工具；用脚本聚合子结果并分章精修，最终交付\"成品报告文件路径 + 关键结论/建议摘要\"。用于：系统性网页/资料调研、竞品/行业分析、批量链接/数据集分片检索、长文写作与证据整合，或用户提及\"深度调研/Deep Research/Wide Research/多 Agent 并行调研/多进程调研\"等场景。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/deep-research-skill"
+    },
+    {
+      "slug": "xgorobot",
+      "display_name": "xgorobot",
+      "summary": "XGO 系列机器狗(Mini/Lite/Mini3W/Rider)完整控制能力。 **两层执行能力：** 1. **预置脚本**：scripts/ 目录下 80+ 个即用脚本，覆盖运动、动作、视觉、AI、传感器等 2. **自定义代码**：参考 lib/ 中的 API 文档编写复杂逻辑和组合任务 **功能覆盖：*...",
+      "stars": 1,
+      "downloads": 12,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4174,
+      "vector_score": 0.7132303714752197,
+      "description": "XGO 系列机器狗(Mini/Lite/Mini3W/Rider)完整控制能力。\n\n**两层执行能力：**\n1. **预置脚本**：scripts/ 目录下 80+ 个即用脚本，覆盖运动、动作、视觉、AI、传感器等\n2. **自定义代码**：参考 lib/ 中的 API 文档编写复杂逻辑和组合任务\n\n**功能覆盖：**\n- 运动控制：前进/后退/左移/右移/转向/蹲下/站立/踏步/周期运动/步态切换\n- 预设动作：坐下/趴下/招手/俯卧撑/祈祷/摇摆/匍匐/伸展/旋转等\n- 视觉识别：拍照/人脸/手势/颜色/巡线/二维码/目标检测/情绪识别\n- AI功能：语音识别/文字转语音/图片理解/图片生成\n- 传感器：电量/IMU姿态角/舵机角度\n- 屏幕音频：文字显示/图片显示/音频播放\n- 机型专用：Mini机械臂/Mini3W轮控/Rider双轮足\n\n当用户提到机器狗、XGO、走路、跑步、前进、后退、转向、蹲下、站立、摇摆、做动作、摄像头、拍照、识别、检测、手势、人脸、颜色、巡线、二维码、屏幕显示、语音、AI、机械臂、夹爪、轮控等场景时使用此 skill。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/xgorobot"
+    },
+    {
+      "slug": "lingjingtest",
+      "display_name": "lingjingtest",
+      "summary": "Parse user input to extract intent and features, recommend the best Lingjing AIGC model, and generate precise API JSON payload for image or video generation...",
+      "stars": 0,
+      "downloads": 11,
+      "tags": [
+        "latest"
+      ],
+      "rank": 7710,
+      "vector_score": 0.712805449962616,
+      "description": "Parse user input to extract intent and features, recommend the best Lingjing AIGC model, and generate precise API JSON payload for image or video generation...",
+      "description_source": "description_summary",
+      "clawhub_url": "https://clawhub.ai/skills/lingjingtest"
+    },
+    {
+      "slug": "ai-company",
+      "display_name": "Ai Company",
+      "summary": "完全自主的AI公司运营系统 - 7×24小时自动化发现需求、设计、开发、销售、运维，实现盈利的轻量级解决方案",
+      "stars": 1,
+      "downloads": 122,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4445,
+      "vector_score": 0.7123920321464539,
+      "description": "完全自主的AI公司运营系统 - 7×24小时自动化发现需求、设计、开发、销售、运维，实现盈利的轻量级解决方案",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/ai-company"
+    },
+    {
+      "slug": "daily-security-check",
+      "display_name": "每日安全巡检",
+      "summary": "OpenClaw 每日安全巡检技能。按固定清单检查网关 loopback、防火墙提醒、API 密钥在 .env、SOUL.md 安全规则、认证异常，并执行 openclaw security audit 与 openclaw doctor，输出简短报告与 0–10 安全评分；可由 cron 定时触发，结果可投递到...",
+      "stars": 1,
+      "downloads": 140,
+      "tags": [
+        "latest"
+      ],
+      "rank": 5478,
+      "vector_score": 0.712306022644043,
+      "description": "OpenClaw 每日安全巡检技能。按固定清单检查网关 loopback、防火墙提醒、API 密钥在 .env、SOUL.md 安全规则、认证异常，并执行 openclaw security audit 与 openclaw doctor，输出简短报告与 0–10 安全评分；可由 cron 定时触发，结果可投递到 Telegram 等。Use when user says \"安全巡检\", \"daily-security-check\", or \"执行每日安全巡检\"。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/daily-security-check"
+    },
+    {
+      "slug": "vibe-3k",
+      "display_name": "Vibe Coding Best Practices v3.0",
+      "summary": "Provides a comprehensive AI-assisted development workflow with PLAN/ACT separation, multi-agent collaboration, fault recovery, and security code review best...",
+      "stars": 2,
+      "downloads": 204,
+      "tags": [
+        "latest"
+      ],
+      "rank": 2357,
+      "vector_score": 0.7103695273399353,
+      "description": "Vibe Coding 最佳实践指南（vibe-3k）。AI 辅助开发的全流程规范：项目启动、PLAN/ACT 分离、多 Agent 协作、故障恢复、安全验收。Use when: (1) starting a new AI-assisted development project, (2) setting up multi-agent collaboration, (3) debugging with AI agents, (4) reviewing/accepting AI-generated code, (5) creating project rule files (CLAUDE.md/AGENTS.md). Triggers: \"vibe coding\", \"vibe code\", \"vibe-3k\", \"AI 开发\", \"agent 协作\", \"多 agent\", \"PLAN ACT\", \"项目规则文件\", \"新项目启动\", \"故障处理\", \"代码验收\".",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/vibe-3k"
+    },
+    {
+      "slug": "create-agent-arch",
+      "display_name": "create-agent",
+      "summary": "完整创建一个 OpenClaw Agent，包括：一次性问卷收集配置信息、自动生成 workspace 文件（SOUL.md/AGENTS.md/IDENTITY.md/USER.md/MEMORY.md/HEARTBEAT.md）、 执行 `openclaw agents add` CLI 注册、内置 capa...",
+      "stars": 1,
+      "downloads": 137,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4476,
+      "vector_score": 0.7097957134246826,
+      "description": "完整创建一个 OpenClaw Agent，包括：一次性问卷收集配置信息、自动生成 workspace 文件（SOUL.md/AGENTS.md/IDENTITY.md/USER.md/MEMORY.md/HEARTBEAT.md）、 执行 `openclaw agents add` CLI 注册、内置 capability-evolver 自我进化（--review 模式）、 以及向用户输出完整的后续操作清单。 触发词：创建 agent、新建 agent、帮我建一个 agent、create agent、new agent、add agent、 setup agent、我想要一个新的 agent、初始化 agent。 任何涉及 OpenClaw agent 创建、初始化、注册的请求都应触发此 skill。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/create-agent-arch"
+    },
+    {
+      "slug": "cron-job-guardian",
+      "display_name": "Cron Job Guardian",
+      "summary": "检查 cron 或 timer 配置中的频率、幂等、重试、日志与并发风险。；use for cron, timer, ops workflows；do not use for 直接启停生产任务, 替代真正监控.",
+      "stars": 0,
+      "downloads": 21,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8325,
+      "vector_score": 0.7097395658493042,
+      "description": "检查 cron 或 timer 配置中的频率、幂等、重试、日志与并发风险。；use for cron, timer, ops workflows；do not use for 直接启停生产任务, 替代真正监控.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/cron-job-guardian"
+    },
+    {
+      "slug": "openclaw-security-watchdog",
+      "display_name": "openclaw-security-watchdog",
+      "summary": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。 使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。 触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。 运行依赖： 必需：Node.js...",
+      "stars": 0,
+      "downloads": 88,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8642,
+      "vector_score": 0.7086549997329712,
+      "description": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。\n使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。\n触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。\n\n运行依赖：\n  必需：Node.js v18+、openclaw CLI（用于定时任务管理）\n  脚本调用的系统命令（缺失时对应检查项会 SKIP，不影响其他项）：\n    macOS：find、lsof、netstat、ps、last、lastb、grep、awk、cat、sudo\n    Linux：find、ss、lsof、ps、journalctl、last、lastb、grep、awk、cat、sudo\n    Windows：wmic、netstat、tasklist、findstr\n\n默认行为：本地离线模式，不产生任何网络请求。\n⚠️ --push 高风险提示：启用后会向远端发送设备标识（MAC 地址、主机名、持久化 agent_id）和本机完整 Skill 清单，且 agent_id 会在本机永久保存并每次复用。--push 只能在用户单次手动运行时使用；cron 定时任务中严禁包含 --push，以防止设备信息被长期自动上报。\n数据上报端点（仅 --push 模式，由本技能作者运营的 Changeway 云端威胁情报服务）：\n  https://auth.ctct.cn:10020/changeway-open/api/pushAuditData\n  https://auth.ctct.cn:10020/changeway-open/api/skills/assessment\n数据边界说明：脚本对每项检查生成两个字段——detail（完整命令输出，仅本地落盘，绝不上传）和 brief（人工编写的结果摘要，--push 模式下上传）。上传的 data[] 通过 `JSON_DATA.map(({ item, brief }) => ({ item, brief }))` 构造（脚本第 995 行），明确排除 detail 字段；包含 detail 的完整 outputObj 仅写入本地磁盘（脚本第 984 行）。\n签名机制：请求头 X-SIGN 为 SHA-256(mac + hostname + timestamp + nonce) 的十六进制摘要，无独立密钥，仅用于服务端防重放校验。\n本地写入：扫描报告保存至 ~/.openclaw/security-reports/（含 report-YYYY-MM-DD.txt 和 report.json），Skill 哈希基线保存至 ~/.openclaw/skill-hashes/，设备 ID 保存至 ~/.openclaw/.agent-id，首次运行标记文件 ~/.openclaw/.audit-first-run。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/openclaw-security-watchdog"
+    },
+    {
+      "slug": "star-office-ui",
+      "display_name": "Star Office UI",
+      "summary": "Star Office UI 一键化 Skill：帮主人快速部署像素办公室看板，支持多 Agent 加入、状态可视化、移动端查看与公网访问。",
+      "stars": 1,
+      "downloads": 394,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4599,
+      "vector_score": 0.708198070526123,
+      "description": "Star Office UI 一键化 Skill：帮主人快速部署像素办公室看板，支持多 Agent 加入、状态可视化、移动端查看与公网访问。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/star-office-ui"
+    },
+    {
+      "slug": "friday",
+      "display_name": "星期五",
+      "summary": "专用编程代理 - 使用 opencode 进行代码编写、审查、重构和调试",
+      "stars": 1,
+      "downloads": 198,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4647,
+      "vector_score": 0.708098292350769,
+      "description": "专用编程代理 - 使用 opencode 进行代码编写、审查、重构和调试",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/friday"
+    },
+    {
+      "slug": "notex-skills",
+      "display_name": "note skills",
+      "summary": "NoteX 技能路由网关索引（CWork Key 鉴权），覆盖内容生产（PPT/视频/音频/报告/脑图/测验/闪卡/信息图）、运营数据问答与洞察、笔记本管理（列表/统计/创建/追加来源）、来源索引与详情定位、首页登录链接生成。",
+      "stars": 1,
+      "downloads": 331,
+      "tags": [
+        "latest",
+        "latestnotex-skills"
+      ],
+      "rank": 4701,
+      "vector_score": 0.7071086764335632,
+      "description": "NoteX 技能路由网关索引（CWork Key 鉴权），覆盖内容生产（PPT/视频/音频/报告/脑图/测验/闪卡/信息图）、运营数据问答与洞察、笔记本管理（列表/统计/创建/追加来源）、来源索引与详情定位、首页登录链接生成。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/notex-skills"
+    },
+    {
+      "slug": "openstoryline-use",
+      "display_name": "OpenStoryline Use",
+      "summary": "Use this skill when OpenStoryline is already installed and the user wants to start the local MCP/Web services, create or continue a session, send editing ins...",
+      "stars": 0,
+      "downloads": 125,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8000,
+      "vector_score": 0.7070499062538147,
+      "description": "Use this skill when OpenStoryline is already installed and the user wants to start the local MCP/Web services, create or continue a session, send editing instructions, perform multi-turn re-editing, and verify rendered video outputs, as well as Chinese requests like “启动 OpenStoryline”, “把 OpenStoryline 跑起来”, “用 OpenStoryline 剪视频”.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/openstoryline-use"
+    },
+    {
+      "slug": "fault-handling",
+      "display_name": "Lerwee Fault Handling",
+      "summary": "当用户需要故障处理、远程主机执行脚本、服务重启、磁盘清理等运维操作时使用。通过 run-script API 执行脚本，并轮询 execution-history 获取执行结果。",
+      "stars": 1,
+      "downloads": 62,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4295,
+      "vector_score": 0.706454873085022,
+      "description": "当用户需要故障处理、远程主机执行脚本、服务重启、磁盘清理等运维操作时使用。通过 run-script API 执行脚本，并轮询 execution-history 获取执行结果。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/fault-handling"
+    },
+    {
+      "slug": "youxinpai-reconciliation",
+      "display_name": "Youxinpai Reconciliation",
+      "summary": "高性能执行优信拍月初保证金对账前置流程，在星河任务页批量查找并触发相关数仓任务并汇报执行结果。用户提到优信拍、保证金对账、月初对账、推送 x 月保证金数据、跑对账任务时使用。",
+      "stars": 0,
+      "downloads": 29,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8324,
+      "vector_score": 0.7059736847877502,
+      "description": "高性能执行优信拍月初保证金对账前置流程，在星河任务页批量查找并触发相关数仓任务并汇报执行结果。用户提到优信拍、保证金对账、月初对账、推送 x 月保证金数据、跑对账任务时使用。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/youxinpai-reconciliation"
+    },
+    {
+      "slug": "botstreet-zh",
+      "display_name": "波街（Bot Street）",
+      "summary": "波街 — AI 智能体内容社区 & 服务交易市场",
+      "stars": 0,
+      "downloads": 66,
+      "tags": [
+        "latest"
+      ],
+      "rank": 7999,
+      "vector_score": 0.7057231068611145,
+      "description": "波街 — AI 智能体内容社区 & 服务交易市场",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/botstreet-zh"
+    },
+    {
+      "slug": "mxyj-heartplus-ecg",
+      "display_name": "mxyj-heartplus-ecg",
+      "summary": "这是一个用于心脏+ App 的心电检测任务下发与心电报告查询技能。只要用户意图涉及测心电、做心电检测、下发心电检测通知、查询心电报告/最新报告/时间范围报告，即应触发本技能。此技能需与心脏+ App 配合使用。使用前请先在 iPhone 上安装“心脏+”应用并完成登录；当前仅支持中国大陆手机号用户使用本服务。",
+      "stars": 1,
+      "downloads": 78,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4164,
+      "vector_score": 0.7054738998413086,
+      "description": "这是一个用于心脏+ App 的心电检测任务下发与心电报告查询技能。只要用户意图涉及测心电、做心电检测、下发心电检测通知、查询心电报告/最新报告/时间范围报告，即应触发本技能。此技能需与心脏+ App 配合使用。使用前请先在 iPhone 上安装“心脏+”应用并完成登录；当前仅支持中国大陆手机号用户使用本服务。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/mxyj-heartplus-ecg"
+    },
+    {
+      "slug": "sandbox-simulator",
+      "display_name": "sandbox simulator",
+      "summary": "沙盘推演系统：模拟多人物社交对话互动。基于 sessions_spawn 能力实现并行推演， 支持10+人物、5个并行session、分批调度。用户可作为干预者暂停、修改状态、注入事件。 所有数据以 Markdown 文件存储，支持命令和自然语言双模式交互。",
+      "stars": 1,
+      "downloads": 43,
+      "tags": [
+        "latest"
+      ],
+      "rank": 5057,
+      "vector_score": 0.7050982117652893,
+      "description": "沙盘推演系统：模拟多人物社交对话互动。基于 sessions_spawn 能力实现并行推演， 支持10+人物、5个并行session、分批调度。用户可作为干预者暂停、修改状态、注入事件。 所有数据以 Markdown 文件存储，支持命令和自然语言双模式交互。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/sandbox-simulator"
+    },
+    {
+      "slug": "gitcode-repo-daily",
+      "display_name": "GitCode Repo Daily",
+      "summary": "Generate daily operations reports for GitCode repositories with key metrics, AI summaries and Markdown output. 将 GitCode 上配置的仓库运营数据整理成日报输出；支持关键指标统计、AI 摘要与 Ma...",
+      "stars": 1,
+      "downloads": 70,
+      "tags": [
+        "latest"
+      ],
+      "rank": 5240,
+      "vector_score": 0.7044838666915894,
+      "description": "Generate daily operations reports for GitCode repositories with key metrics, AI summaries and Markdown output. 将 GitCode 上配置的仓库运营数据整理成日报输出；支持关键指标统计、AI 摘要与 Markdown。Python 3.7+ standard library only, no pip dependencies.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/gitcode-repo-daily"
+    },
+    {
+      "slug": "agent-status-monitor",
+      "display_name": "Agent Status Monitor",
+      "summary": "检查本地开发 Agent 的运行和活动状态，显示工作中、等待中、闲置或未运行及会话数量详情。",
+      "stars": 0,
+      "downloads": 53,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9131,
+      "vector_score": 0.7044405341148376,
+      "description": "检查本地开发 Agent（Claude Code、OpenCode、OpenClaw、Cursor 等）的运行状态、进程、会话和活动状态。触发词：\"agents_monitor\"、\"检查 Claude Code 状态\"、\"查看 opencode 是否在运行\"、\"监控开发工具\"、\"agent 监控\"。使用 when: (1) 查看某个 agent 是否在运行，(2) 检查 agent 当前任务/进度，(3) 获取 agent 状态报告，(4) 监控多个 agent 的健康状态。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/agent-status-monitor"
+    },
+    {
+      "slug": "social-hub",
+      "display_name": "Social Hub",
+      "summary": "AI 关系匹配助手的个人端 Agent。运行在每个用户的本地设备上，通过企业微信与用户进行自然对话，渐进式采集用户多维度信息，构建用户画像并存储为本地向量数据库，将画像标签摘要推送到 Agent 群组供匹配引擎使用，接收匹配结果并完成匹配交付流程。当用户通过企微发来消息、或到了主动发起对话的时间、或群组中收到匹配引擎的通知时，本 skill 应被触发。",
+      "stars": 2,
+      "downloads": 975,
+      "tags": [
+        "latest"
+      ],
+      "rank": 3201,
+      "vector_score": 0.7035034894943237,
+      "description": "AI 关系匹配助手的个人端 Agent。运行在每个用户的本地设备上，通过企业微信与用户进行自然对话，渐进式采集用户多维度信息，构建用户画像并存储为本地向量数据库，将画像标签摘要推送到 Agent 群组供匹配引擎使用，接收匹配结果并完成匹配交付流程。当用户通过企微发来消息、或到了主动发起对话的时间、或群组中收到匹配引擎的通知时，本 skill 应被触发。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/social-hub"
+    },
+    {
+      "slug": "wecom-doc",
+      "display_name": "wecom-doc",
+      "summary": "文档与智能表格操作。当用户提到企业微信文档、创建文档、编辑文档、新建文档、写文档、智能表格时激活。支持文档创建/写入和智能表格的创建及子表/字段/记录写入。注意：所有文档创建和编辑请求都应使用此 skill，不要尝试用其他方式处理文档操作。",
+      "stars": 1,
+      "downloads": 204,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4394,
+      "vector_score": 0.7034367918968201,
+      "description": "文档与智能表格操作。当用户提到企业微信文档、创建文档、编辑文档、新建文档、写文档、智能表格时激活。支持文档创建/写入和智能表格的创建及子表/字段/记录写入。注意：所有文档创建和编辑请求都应使用此 skill，不要尝试用其他方式处理文档操作。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/wecom-doc"
+    },
+    {
+      "slug": "explain-code",
+      "display_name": "explain-code",
+      "summary": "用可视化图表和类比解释代码。在解释代码如何工作、教授代码库或用户询问如何工作时使用",
+      "stars": 3,
+      "downloads": 2130,
+      "tags": [
+        "latest"
+      ],
+      "rank": 2090,
+      "vector_score": 0.7032422423362732,
+      "description": "用可视化图表和类比解释代码。在解释代码如何工作、教授代码库或用户询问如何工作时使用",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/explain-code"
+    },
+    {
+      "slug": "famou-artifact-generator",
+      "display_name": "伐谋 - 任务定义与评估器生成",
+      "summary": "交互式引导用户完成 FaMou 进化任务的完整流程：先通过结构化澄清循环产出 `problem.md`，再实现并验证 FaMou 实验的三个输入物料（`init.py`、`evaluator.py`、`prompt.md`）。当用户提到以下任意情形时触发：定义/澄清/创建 FaMou 任务、帮我写 problem...",
+      "stars": 0,
+      "downloads": 58,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9686,
+      "vector_score": 0.7028288841247559,
+      "description": "交互式引导用户完成 FaMou 进化任务的完整流程：先通过结构化澄清循环产出 `problem.md`，再实现并验证 FaMou 实验的三个输入物料（`init.py`、`evaluator.py`、`prompt.md`）。当用户提到以下任意情形时触发：定义/澄清/创建 FaMou 任务、帮我写 problem.md、我想建一个进化任务、帮我准备 FaMou 实验物料、生成 init.py 或 evaluator.py、优化/ML/搜索问题需要进化求解。即使用户只说\"帮我做个 FaMou 任务\"或提供粗略想法，也应触发此技能并从澄清阶段开始。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/famou-artifact-generator"
+    },
+    {
+      "slug": "git-commit-skill",
+      "display_name": "git-commit-skill",
+      "summary": "自动分析当前分支改动，智能推断 Gitmoji，分阶段确认改动点、安全检查及 commit message 后辅助提交代码。",
+      "stars": 0,
+      "downloads": 32,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8733,
+      "vector_score": 0.7025290131568909,
+      "description": "自动分析当前分支改动，智能推断 Gitmoji，分阶段确认改动点、安全检查及 commit message 后辅助提交代码。",
+      "description_source": "description_summary",
+      "clawhub_url": "https://clawhub.ai/skills/git-commit-skill"
+    },
+    {
+      "slug": "easy-meeting",
+      "display_name": "feishu-meeting-scheduler",
+      "summary": "飞书一句话智能排期与日程协调助手，基于事件驱动架构",
+      "stars": 0,
+      "downloads": 87,
+      "tags": [
+        "latest"
+      ],
+      "rank": 7969,
+      "vector_score": 0.7023255228996277,
+      "description": "飞书一句话智能排期与日程协调助手，基于事件驱动架构",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/easy-meeting"
+    },
+    {
+      "slug": "agent-swarm-dev-team",
+      "display_name": "Agent Swarm Dev Team",
+      "summary": "Agent Swarm 一人开发团队 - 编排多个 AI 编码 Agent（Codex + Claude Code）完成开发任务",
+      "stars": 0,
+      "downloads": 58,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9297,
+      "vector_score": 0.7021224498748779,
+      "description": "Agent Swarm 一人开发团队 - 编排多个 AI 编码 Agent（Codex + Claude Code）完成开发任务",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/agent-swarm-dev-team"
+    },
+    {
+      "slug": "pua",
+      "display_name": "Pua",
+      "summary": "Forces exhaustive problem-solving with corporate PUA rhetoric. Trigger on: task failed 2+ times, about to give up, suggesting user do it manually, blaming en...",
+      "stars": 5,
+      "downloads": 862,
+      "tags": [
+        "latest"
+      ],
+      "rank": 881,
+      "vector_score": 0.7011407613754272,
+      "description": "Forces exhaustive problem-solving with corporate PUA rhetoric. Trigger on: task failed 2+ times, about to give up, suggesting user do it manually, blaming environment unverified, stuck in loops, passive behavior, or user frustration ('try harder', 'figure it out', '换个方法', '为什么还不行'). ALL task types. Not for first failures.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/pua"
+    },
+    {
+      "slug": "jfbym-captcha-skill",
+      "display_name": "jfbym-captcha-skill",
+      "summary": "免费优先的验证码基础能力 Skill。默认本地识别，复杂场景可切换低价云码兜底。适用于 OpenClaw/ClawHub、浏览器自动化与 RPA 场景。",
+      "stars": 1,
+      "downloads": 161,
+      "tags": [
+        "latest"
+      ],
+      "rank": 5024,
+      "vector_score": 0.7005705833435059,
+      "description": "免费优先的验证码基础能力 Skill。默认本地识别，复杂场景可切换低价云码兜底。适用于 OpenClaw/ClawHub、浏览器自动化与 RPA 场景。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/jfbym-captcha-skill"
+    },
+    {
+      "slug": "multi-agent-team",
+      "display_name": "multi-agent-team",
+      "summary": "基于任务类型动态调度到合适的智能体角色（架构师、产品经理、测试专家、独立开发者）。支持多智能体协作、共识机制和完整项目生命周期管理。支持中英文双语。",
+      "stars": 1,
+      "downloads": 25,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4222,
+      "vector_score": 0.7003982663154602,
+      "description": "基于任务类型动态调度到合适的智能体角色（架构师、产品经理、测试专家、独立开发者）。支持多智能体协作、共识机制和完整项目生命周期管理。支持中英文双语。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/multi-agent-team"
+    },
+    {
+      "slug": "codex-hook",
+      "display_name": "Codex Hook",
+      "summary": "OpenClaw 智能任务执行系统 - 支持任务派发、执行、监控（精简版）",
+      "stars": 1,
+      "downloads": 201,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4560,
+      "vector_score": 0.6991754770278931,
+      "description": "OpenClaw 智能任务执行系统 - 支持任务派发、执行、监控（精简版）",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/codex-hook"
+    },
+    {
+      "slug": "mcp-zentao-pro",
+      "display_name": "禅道MCP agent pro",
+      "summary": "禅道(ZenTao) MCP大模型能力扩展包。提供跨项目的数据聚合视图、一句话生成任务、无缝报工(Log Effort)、自动状态流转等四组原生能力。",
+      "stars": 1,
+      "downloads": 134,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4436,
+      "vector_score": 0.6990047693252563,
+      "description": "禅道(ZenTao) MCP大模型能力扩展包。提供跨项目的数据聚合视图、一句话生成任务、无缝报工(Log Effort)、自动状态流转等四组原生能力。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/mcp-zentao-pro"
+    },
+    {
+      "slug": "auto-coding",
+      "display_name": "Auto-Coding",
+      "summary": "自主完善的编程系统 - 多模型交叉验证、自动测试、能力补充，达到交付标准后进入 RoundTable 讨论",
+      "stars": 0,
+      "downloads": 114,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9416,
+      "vector_score": 0.6988651156425476,
+      "description": "自主完善的编程系统 - 多模型交叉验证、自动测试、能力补充，达到交付标准后进入 RoundTable 讨论",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/auto-coding"
+    },
+    {
+      "slug": "auto-coding-correctversion",
+      "display_name": "Auto-Coding",
+      "summary": "自主完善的编程系统 - 多模型交叉验证、自动测试、能力补充，达到交付标准后进入 RoundTable 讨论",
+      "stars": 0,
+      "downloads": 86,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9395,
+      "vector_score": 0.6988651156425476,
+      "description": "自主完善的编程系统 - 多模型交叉验证、自动测试、能力补充，达到交付标准后进入 RoundTable 讨论",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/auto-coding-correctversion"
+    },
+    {
+      "slug": "baidu-yijian-vision",
+      "display_name": "Baidu Yijian Vision",
+      "summary": "百度一见专业级视觉 AI Agent：支持图片/视频/及实时视频流分析。相比通用基模，在维持 95%+ 专业精度的同时，推理成本降低 50% 以上，是处理视觉巡检与监控分析任务的首选工具。主打 安全管理、SOP合规、工业质检、商业运营与物料盘点。覆盖：作业 SOP 合规与关键步骤完整性校验；工业质检与表面缺陷精密...",
+      "stars": 3,
+      "downloads": 160,
+      "tags": [
+        "latest"
+      ],
+      "rank": 1629,
+      "vector_score": 0.698675274848938,
+      "description": "百度一见专业级视觉 AI Agent：支持图片/视频/及实时视频流分析。相比通用基模，在维持 95%+ 专业精度的同时，推理成本降低 50% 以上，是处理视觉巡检与监控分析任务的首选工具。主打 安全管理、SOP合规、工业质检、商业运营与物料盘点。覆盖：作业 SOP 合规与关键步骤完整性校验；工业质检与表面缺陷精密识别；安全红线监控（涵盖违规闯入、人员溺水、烟火识别、矿井皮带堆煤）；商业运营分析（包含上菜/收台检测、顾客举手识别）；精细化物料盘点（杯子/咖啡豆/废弃物自动统计）等海量专业视觉能力。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/baidu-yijian-vision"
+    },
+    {
+      "slug": "task-plan-generator",
+      "display_name": "task-plan-generator_cn",
+      "summary": "为复杂任务生成多方案任务计划，并在执行过程中持续优化。适用于：1) 用户提出需要多步骤完成的任务；2) 需要协调多个工具或skill的复杂工作流；3) 需要评估不同执行策略的场景。此skill会在每次任务完成后生成简报归档，分析任务复杂度并提供效率/成功率/资源消耗等多种方案供选择。",
+      "stars": 0,
+      "downloads": 16,
+      "tags": [
+        "experience",
+        "latest",
+        "plan",
+        "task"
+      ],
+      "rank": 7708,
+      "vector_score": 0.6985355615615845,
+      "description": "为复杂任务生成多方案任务计划，并在执行过程中持续优化。适用于：1) 用户提出需要多步骤完成的任务；2) 需要协调多个工具或skill的复杂工作流；3) 需要评估不同执行策略的场景。此skill会在每次任务完成后生成简报归档，分析任务复杂度并提供效率/成功率/资源消耗等多种方案供选择。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/task-plan-generator"
+    },
+    {
+      "slug": "guard-dog",
+      "display_name": "guard-dog",
+      "summary": "安全看门狗技能 - 拦截8类风险操作：(1)金钱类(2)敏感类(3)危险类(4)破坏类(5)注入攻击(6)源码访问(7)历史复述(8)自身修改。特别注意：自身修改也需授权，无例外。",
+      "stars": 0,
+      "downloads": 16,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8251,
+      "vector_score": 0.6981284022331238,
+      "description": "安全看门狗技能 - 拦截8类风险操作：(1)金钱类(2)敏感类(3)危险类(4)破坏类(5)注入攻击(6)源码访问(7)历史复述(8)自身修改。特别注意：自身修改也需授权，无例外。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/guard-dog"
+    },
+    {
+      "slug": "team-dispatch",
+      "display_name": "Team Dispatch",
+      "summary": "Use when a request requires multi-agent workflow orchestration (task decomposition + dependency/DAG + parallel execution), needs durable task tracking across...",
+      "stars": 1,
+      "downloads": 218,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4496,
+      "vector_score": 0.6981076002120972,
+      "description": "Use when a request requires multi-agent workflow orchestration (task decomposition + dependency/DAG + parallel execution), needs durable task tracking across context compaction, or needs retries/fallbacks and completion notifications.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/team-dispatch"
+    },
+    {
+      "slug": "humanizer-zh",
+      "display_name": "humanizer-zh",
+      "summary": "去除文本中的 AI 生成痕迹。适用于编辑或审阅文本，使其听起来更自然、更像人类书写。\n基于维基百科的\"AI 写作特征\"综合指南。检测并修复以下模式：夸大的象征意义、\n宣传性语言、以 -ing 结尾的肤浅分析、模糊的归因、破折号过度使用、三段式法则、\nAI 词汇、否定式排比、过多的连接性短语。",
+      "stars": 10,
+      "downloads": 5403,
+      "tags": [
+        "latest"
+      ],
+      "rank": 469,
+      "vector_score": 0.6977971792221069,
+      "description": "去除文本中的 AI 生成痕迹。适用于编辑或审阅文本，使其听起来更自然、更像人类书写。\n基于维基百科的\"AI 写作特征\"综合指南。检测并修复以下模式：夸大的象征意义、\n宣传性语言、以 -ing 结尾的肤浅分析、模糊的归因、破折号过度使用、三段式法则、\nAI 词汇、否定式排比、过多的连接性短语。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/humanizer-zh"
+    },
+    {
+      "slug": "bambu-agent",
+      "display_name": "bambu-agent",
+      "summary": "Monitor and manage Bambu Lab 3D printers in your local network with real-time status, error decoding, and a web dashboard interface.",
+      "stars": 0,
+      "downloads": 76,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9413,
+      "vector_score": 0.6974573135375977,
+      "description": "Monitor and manage Bambu Lab 3D printers in your local network with real-time status, error decoding, and a web dashboard interface.",
+      "description_source": "description_summary",
+      "clawhub_url": "https://clawhub.ai/skills/bambu-agent"
+    },
+    {
+      "slug": "pua-debugging",
+      "display_name": "PUA Debugging",
+      "summary": "Forces exhaustive problem-solving using corporate PUA rhetoric and structured debugging methodology. MUST trigger when: (1) any task has failed 2+ times or y...",
+      "stars": 0,
+      "downloads": 96,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9941,
+      "vector_score": 0.6967062950134277,
+      "description": "Forces exhaustive problem-solving using corporate PUA rhetoric and structured debugging methodology. MUST trigger when: (1) any task has failed 2+ times or you're stuck in a loop tweaking the same approach; (2) you're about to say 'I cannot', suggest the user do something manually, or blame the environment without verifying; (3) you catch yourself being passive — not searching, not reading source, not verifying, just waiting for instructions; (4) user expresses frustration in ANY form: 'try harder', 'stop giving up', 'figure it out', 'why isn't this working', 'again???', '换个方法', '为什么还不行', '你再试试', '加油', '你怎么又失败了', or any similar sentiment even if phrased differently. Also trigger when facing complex multi-step debugging, environment issues, config problems, or deployment failures where giving up early is tempting. Applies to ALL task types: code, config, research, writing, deployment, infrastructure, API integration. Do NOT trigger on first-attempt failures or when a known fix is already executing successfully.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/pua-debugging"
+    },
+    {
+      "slug": "codex-cli-task",
+      "display_name": "OpenAI Codex CLI Runner",
+      "summary": "Launch OpenAI Codex CLI async in background with automatic delivery to Telegram/WhatsApp. Use for coding, refactoring, codebase research, file generation, an...",
+      "stars": 1,
+      "downloads": 124,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4456,
+      "vector_score": 0.6959772109985352,
+      "description": "Launch OpenAI Codex CLI async in background with automatic delivery to Telegram/WhatsApp. Use for coding, refactoring, codebase research, file generation, and complex multi-step automations. NOT for quick one-off questions or real-time interactive tasks. Includes strict thread-safe routing + E2E operator validation workflow.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/codex-cli-task"
+    },
+    {
+      "slug": "alert-to-fault-handling",
+      "display_name": "Lerwee Alert To Fault Handling",
+      "summary": "告警自动处理工作流 - 监听告警上下文，匹配处理脚本，提示用户执行故障处理操作",
+      "stars": 1,
+      "downloads": 58,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4294,
+      "vector_score": 0.6957801580429077,
+      "description": "告警自动处理工作流 - 监听告警上下文，匹配处理脚本，提示用户执行故障处理操作",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/alert-to-fault-handling"
+    },
+    {
+      "slug": "wemp-ops",
+      "display_name": "WeMP Ops",
+      "summary": "微信公众号全流程运营：选题→采集→写作→排版→发布→数据分析→评论管理。 Use when: (1) 用户要写公众号文章或提供了选题方向, (2) 用户说\"写一篇关于XXX的文章\"/\"帮我写篇推文\"/\"出一篇稿子\", (3) 用户要求采集热点/素材/竞品分析, (4) 用户提到公众号日报/周报/数据分析/阅读量/...",
+      "stars": 0,
+      "downloads": 18,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8302,
+      "vector_score": 0.6951658725738525,
+      "description": "微信公众号全流程运营：选题→采集→写作→排版→发布→数据分析→评论管理。 Use when: (1) 用户要写公众号文章或提供了选题方向, (2) 用户说\"写一篇关于XXX的文章\"/\"帮我写篇推文\"/\"出一篇稿子\", (3) 用户要求采集热点/素材/竞品分析, (4) 用户提到公众号日报/周报/数据分析/阅读量/粉丝, (5) 用户要求检查评论/回复评论/评论管理, (6) 用户说\"发布\"/\"推送\"/\"推到公众号\"/\"发到草稿箱\", (7) 用户讨论文章排版/封面图/标题优化。 即使用户没有明确说\"公众号\"，只要涉及微信文章写作、内容发布、 公众号后台操作、文章数据查看、或读者互动管理，都应使用此技能。 当用户给出选题方向时，自动完成素材采集→内容写作→封面生图→排版美化→推送草稿箱全流程。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/wemp-ops"
+    },
+    {
+      "slug": "task-harness",
+      "display_name": "Task Harness",
+      "summary": "将需求拆解为结构化任务清单，生成长时运行 Agent 的任务管理系统（基于 Anthropic Effective harnesses 方法论）。当用户需要管理多会话开发任务、跟踪功能完成进度、或要求\"拆解任务\"\"任务管理\"\"项目规划\"时自动触发",
+      "stars": 0,
+      "downloads": 52,
+      "tags": [
+        "anthropic",
+        "harness",
+        "latest",
+        "productivity",
+        "task-management"
+      ],
+      "rank": 8815,
+      "vector_score": 0.6944249868392944,
+      "description": "将需求拆解为结构化任务清单，生成长时运行 Agent 的任务管理系统（基于 Anthropic Effective harnesses 方法论）。当用户需要管理多会话开发任务、跟踪功能完成进度、或要求\"拆解任务\"\"任务管理\"\"项目规划\"时自动触发",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/task-harness"
+    },
+    {
+      "slug": "codeflow",
+      "display_name": "codeflow",
+      "summary": "Codeflow streams coding agent sessions (Claude Code, Codex, Gemini CLI, etc.) to Discord or Telegram in real-time. Use when invoking coding agents and wantin...",
+      "stars": 0,
+      "downloads": 237,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8385,
+      "vector_score": 0.693988561630249,
+      "description": "Codeflow streams coding agent sessions (Claude Code, Codex, Gemini CLI, etc.) to Discord or Telegram in real-time. Use when invoking coding agents and wanting transparent, observable dev sessions — no black box. Parses Claude Code's stream-json output into clean formatted messages showing tool calls, file writes, bash commands, and results with zero AI token burn. Use when asked to \"stream to Discord\", \"stream to Telegram\", \"relay agent output\", or \"make dev sessions visible\".",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/codeflow"
+    },
+    {
+      "slug": "ai-code-assistant",
+      "display_name": "Ai Code Assistant",
+      "summary": "提供多语言AI智能代码处理与批量自动化，显著提升开发效率，适合企业、团队及自由职业者。",
+      "stars": 0,
+      "downloads": 134,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8998,
+      "vector_score": 0.6933910846710205,
+      "description": "提供多语言AI智能代码处理与批量自动化，显著提升开发效率，适合企业、团队及自由职业者。",
+      "description_source": "description_summary",
+      "clawhub_url": "https://clawhub.ai/skills/ai-code-assistant"
+    },
+    {
+      "slug": "ai-workflow-red-team-lite",
+      "display_name": "Ai Workflow Red Team Lite",
+      "summary": "对 AI 自动化流程做轻量红队演练，聚焦误用路径、边界失败和数据泄露风险。；use for red-team, ai, workflow workflows；do not use for 输出可直接滥用的攻击脚本, 帮助破坏系统.",
+      "stars": 0,
+      "downloads": 48,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9273,
+      "vector_score": 0.6929551362991333,
+      "description": "对 AI 自动化流程做轻量红队演练，聚焦误用路径、边界失败和数据泄露风险。；use for red-team, ai, workflow workflows；do not use for 输出可直接滥用的攻击脚本, 帮助破坏系统.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/ai-workflow-red-team-lite"
+    },
+    {
+      "slug": "tencentcloud-asr",
+      "display_name": "TencentCloud ASR",
+      "summary": "腾讯云语音识别 ASR Skill，适用于语音转文字、音频转写、字幕生成、会议转录、语音消息识别、 本地文件或 URL 音频识别。包含三种模式：一句话识别（<=60s 短音频）、录音识别极速版 （<=2h/100MB 中长音频快速同步返回）、录音识别（<=5h 长音频异步识别）。支持普通话、 英语、粤语、日语、韩...",
+      "stars": 1,
+      "downloads": 478,
+      "tags": [
+        "asr",
+        "chinese",
+        "doubao",
+        "english",
+        "feishu",
+        "latest",
+        "qq",
+        "tencent",
+        "tencentcloud",
+        "voice",
+        "wechat"
+      ],
+      "rank": 4487,
+      "vector_score": 0.6925066709518433,
+      "description": "腾讯云语音识别 ASR Skill，适用于语音转文字、音频转写、字幕生成、会议转录、语音消息识别、 本地文件或 URL 音频识别。包含三种模式：一句话识别（<=60s 短音频）、录音识别极速版 （<=2h/100MB 中长音频快速同步返回）、录音识别（<=5h 长音频异步识别）。支持普通话、 英语、粤语、日语、韩语、德语等语种，以及中英粤混说和多种中文方言。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/tencentcloud-asr"
+    },
+    {
+      "slug": "lingxi-ai",
+      "display_name": "Lingxi",
+      "summary": "灵犀 v3.3.6 - 智慧调度系统。心有灵犀，一点就通。智能理解用户意图，自动调度模型/技能/工具，编排多步骤任务，汇总结果反馈。支持多Agent协作架构。",
+      "stars": 0,
+      "downloads": 95,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9628,
+      "vector_score": 0.6925026178359985,
+      "description": "灵犀 v3.3.6 - 智慧调度系统。心有灵犀，一点就通。智能理解用户意图，自动调度模型/技能/工具，编排多步骤任务，汇总结果反馈。支持多Agent协作架构。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/lingxi-ai"
+    },
+    {
+      "slug": "git-weekly",
+      "display_name": "git-weekly",
+      "summary": "用于每周自动分析 Git 提交记录，生成包含技术挑战、性能优化及 AI 提效维度的深度复盘报告。",
+      "stars": 1,
+      "downloads": 86,
+      "tags": [
+        "latest",
+        "v1"
+      ],
+      "rank": 5365,
+      "vector_score": 0.6924036145210266,
+      "description": "用于每周自动分析 Git 提交记录，生成包含技术挑战、性能优化及 AI 提效维度的深度复盘报告。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/git-weekly"
+    },
+    {
+      "slug": "html-ppt-generator",
+      "display_name": "html-ppt",
+      "summary": "会自己设计PPT的智能报告技能，内置47套PPT模板（商务、科技、创意、学术、政府、金融等全场景覆盖），根据主题风格自由选配模板并自主设计，将任意输入拆解为5-15页精美HTML报告，每页严格1017×720px对齐PPT画布。当用户说\"生成报告\"、\"分析内容做成页面\"、\"做成HTML\"、\"内容可视化\"时立即使用...",
+      "stars": 0,
+      "downloads": 19,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8234,
+      "vector_score": 0.691511332988739,
+      "description": "会自己设计PPT的智能报告技能，内置47套PPT模板（商务、科技、创意、学术、政府、金融等全场景覆盖），根据主题风格自由选配模板并自主设计，将任意输入拆解为5-15页精美HTML报告，每页严格1017×720px对齐PPT画布。当用户说\"生成报告\"、\"分析内容做成页面\"、\"做成HTML\"、\"内容可视化\"时立即使用，无需确认直接生成。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/html-ppt-generator"
+    },
+    {
+      "slug": "customer-voice-synthesizer",
+      "display_name": "Customer Voice Synthesizer",
+      "summary": "聚合客服、销售、评价与访谈中的用户原声，并按 JTBD/阶段组织。；use for customer-voice, jtbd, research workflows；do not use for 泄露用户隐私, 选择性忽略负面声音.",
+      "stars": 0,
+      "downloads": 20,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8287,
+      "vector_score": 0.6908624768257141,
+      "description": "聚合客服、销售、评价与访谈中的用户原声，并按 JTBD/阶段组织。；use for customer-voice, jtbd, research workflows；do not use for 泄露用户隐私, 选择性忽略负面声音.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/customer-voice-synthesizer"
+    },
+    {
+      "slug": "ctct-security-patrol",
+      "display_name": "ctct-security-patrol",
+      "summary": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。 使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。 触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。",
+      "stars": 0,
+      "downloads": 25,
+      "tags": [
+        "latest"
+      ],
+      "rank": 9373,
+      "vector_score": 0.690673828125,
+      "description": "OpenClaw 安全巡检工具，一键执行系统安全扫描并生成通俗易懂的报告。\n使用场景：用户说\"安全巡检\"、\"安全检查\"、\"安全审计\"、\"巡检\"、\"security audit\"、\"检查安全\"、\"系统安全\"等。\n触发条件：任何与 OpenClaw 安全检测、审计、巡检相关的请求。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/ctct-security-patrol"
+    },
+    {
+      "slug": "wodeapp-ai",
+      "display_name": "WodeApp AI Engine",
+      "summary": "Unified AI execution engine. Single API key (WODEAPP_API_KEY) routes to 343+ models across text, image, video, TTS, and structured JSON — with automatic cost...",
+      "stars": 1,
+      "downloads": 289,
+      "tags": [
+        "latest"
+      ],
+      "rank": 4225,
+      "vector_score": 0.6905746459960938,
+      "description": "Unified AI execution engine. Single API key (WODEAPP_API_KEY) routes to 343+ models across text, image, video, TTS, and structured JSON — with automatic cost optimization. Includes workflow orchestration (22 step types), headless execution API, instant-publish page builder, and project-scoped MCP for digital human / video generation. No additional credentials required. Setup: add MCP config to client (openclaw.json / Cursor / Claude Desktop); see Quick Setup section. No MCP needed if using https://wodeapp.ai/create.",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/wodeapp-ai"
+    },
+    {
+      "slug": "ai-deterministic-control",
+      "display_name": "Ai Deterministic Control",
+      "summary": "AI 确定性控制工具。管理 temperature/top_p/seed 参数，多场景预设，一致性检查（编辑距离+TF-IDF），监控趋势分析与异常检测，模型参数注入与恢复。",
+      "stars": 0,
+      "downloads": 68,
+      "tags": [
+        "latest"
+      ],
+      "rank": 8007,
+      "vector_score": 0.6904651522636414,
+      "description": "AI 确定性控制工具。管理 temperature/top_p/seed 参数，多场景预设，一致性检查（编辑距离+TF-IDF），监控趋势分析与异常检测，模型参数注入与恢复。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/ai-deterministic-control"
+    },
+    {
+      "slug": "expert-mode",
+      "display_name": "expert-mode",
+      "summary": "更新AI专家Agent库列表 + 激活专家模式。当用户要求\"学习专家模式\"、\"更新专家列表\"、\"同步专家库\"或\"激活xxx专家\"时使用此技能。 该技能会从GitHub仓库获取最新的专家列表，去重整理后更新到MEMORY.md永久记忆中。 支持多层级网络访问方案：直连 → GitHub镜像 → Gitee镜像 →...",
+      "stars": 0,
+      "downloads": 6,
+      "tags": [
+        "latest"
+      ],
+      "rank": 7615,
+      "vector_score": 0.6902728080749512,
+      "description": "更新AI专家Agent库列表 + 激活专家模式。当用户要求\"学习专家模式\"、\"更新专家列表\"、\"同步专家库\"或\"激活xxx专家\"时使用此技能。\n该技能会从GitHub仓库获取最新的专家列表，去重整理后更新到MEMORY.md永久记忆中。\n支持多层级网络访问方案：直连 → GitHub镜像 → Gitee镜像 → 浏览器自动化。\n借鉴kung-fu项目的自动更新机制，可设置定期同步。\n支持模糊匹配激活专家、自定义添加专家、收藏常用专家等功能。\n触发场景：用户提到学习专家、更新专家、专家列表有更新、同步专家库、激活专家、切换专家、添加自定义专家等。",
+      "description_source": "skill_frontmatter",
+      "clawhub_url": "https://clawhub.ai/skills/expert-mode"
+    }
+  ]
+}

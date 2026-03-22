@@ -1,0 +1,22 @@
+{
+  "slug": "find-skills",
+  "display_name": "Find Skills",
+  "summary": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+  "stars": 907,
+  "downloads": 222722,
+  "installs_all_time": 3459,
+  "installs_current": 3384,
+  "comments": 4,
+  "versions": 1,
+  "created_at": 1769698710765,
+  "updated_at": 1773364470184,
+  "latest_version": "0.1.0",
+  "changelog": "- Initial release of the find-skills skill.\n- Helps users discover and install agent skills when looking for new functionality or extending agent capabilities.\n- Provides clear guidance on searching for, presenting, and installing skills using Skills CLI commands.\n- Includes examples and tips for effective skill discovery across common categories like web development, testing, and DevOps.\n- Offers fallback options when no relevant skills are found, including help with tasks directly and guidance on creating new skills.",
+  "license": null,
+  "tags": {
+    "latest": "0.1.0"
+  },
+  "metadata": null,
+  "rank": 2,
+  "clawhub_url": "https://clawhub.ai/skills/find-skills"
+}
