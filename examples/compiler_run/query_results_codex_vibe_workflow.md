@@ -1,13 +1,14 @@
-# agentic_coding_workflow
+# agentic_coding_monitoring
 
 query: 一个向codex自动发送指令，并监控vibe coding动态的工作流
 
-workflow: 构建一个以 Codex 后台任务为核心、以 Vibe Coding 状态监控和协作为辅助的自动化工作流：使用 codex-dev 负责向 Codex 自动发送开发指令并保存日志/补丁产物；使用 vibe-3k 约束任务进入 PLAN/ACT 分离、状态跟踪与验收；可选结合 Feishu 做通知与看板同步，结合 multi-agent-cn 或 multi-team-coding 做多任务拆分与并行执行，结合 cron-job-guardian 审查定时触发配置的频率、重试、幂等与日志策略。整体流程为：接收任务 -> 生成/校验 Vibe Coding 计划 -> 投递 Codex 后台作业 -> 记录 receipt、日志、patch artifacts -> 监控任务动态与阶段状态 -> 完成后通知/汇总 -> 人工或自动进入验收与后续迭代。
+workflow: 使用 codex-dev 作为后台 Codex 指令执行器，接收立即回执并保存日志；用 schedule.cron 建立定时监控任务，周期性检查 Codex 任务日志、补丁产物和 vibe coding 相关开发动态；如需团队编排，可结合 multi-agent-cn 或 feishu-ai-coding-assistant 做任务分发与状态汇总；通过 feishu 在关键事件（启动、完成、失败、异常）时发送消息通知。监控以本地日志与任务状态为主，若需外部开发动态补充，可按需启用 web_search/web_fetch。
 
 | Situation | Action | Permission | Scope |
 | --- | --- | --- | --- |
-| 用户希望自动向 Codex 发送编码、重构、修复或执行类指令，并希望任务在本地后台运行且可追踪。 | 启用 codex-dev 创建后台本地任务，立即返回 receipt，指定 workdir，保存日志和 patch artifacts，作为主执行通道。 | run_codex_background_jobs, write_task_logs, write_patch_artifacts, read_workdir, write_workdir | local_workdir, codex_job_runtime, task_logs, patch_artifacts |
-| 用户提到需要监控 vibe coding 动态、阶段推进、PLAN/ACT 分离、故障恢复或 AI 编码规范。 | 应用 vibe-3k 作为流程规范层，对任务进行计划拆分、执行阶段标记、状态回写、故障恢复和验收检查。 | read_project_rules, write_project_rules, read_task_state, write_task_state | project_rule_files, workflow_state, acceptance_checklist |
-| 用户希望在任务完成、失败或关键阶段变化时收到消息提醒，或把动态同步到协作平台。 | 使用 Feishu 发送任务状态通知、日报摘要、异常提醒，必要时同步文档、表格或群消息。 | send_notifications, read_notification_targets, write_collaboration_updates | feishu_messages, feishu_docs, feishu_tables, status_recipients |
-| 用户希望将一个大任务拆成多个子任务并行执行，统一监控多个 Codex/Vibe Coding 动态。 | 使用 multi-agent-cn 或 multi-team-coding 做任务拆分、并行调度和状态聚合，由主流程统一汇总进度和产出。 | spawn_subtasks, coordinate_multi_agent_sessions, read_subtask_status, aggregate_results | agent_sessions, parallel_task_queue, aggregated_status_board |
-| 用户要把该工作流做成定时任务或长期守护流程，需要避免频率、并发、幂等和日志策略问题。 | 使用 cron-job-guardian 审查计划任务配置，确保触发频率合理、支持重试和日志留存，避免把高风险或不幂等任务直接做成失控定时器。 | read_scheduler_config, validate_cron_safety, read_job_logs | cron_config, timer_config, scheduler_logs |
+| 用户要求自动向 Codex 发送开发/重构/测试类指令，并异步运行 | 调用 codex-dev 将指令作为后台本地任务启动，记录 workdir、日志路径、任务回执和补丁产物位置 | exec, process, write, read | compute, filesystem |
+| 用户要求持续监控 vibe coding 动态，包含任务进度、日志变化、产物更新 | 创建定时轮询工作流，周期读取本地日志、任务状态和补丁文件变化，生成进度摘要 | cron, read, process | schedule, filesystem, compute |
+| 用户要求在任务完成、失败或异常时自动通知 | 通过 Feishu 或消息节点发送状态通知，附带任务摘要、日志路径和下一步建议 | message, read | schedule, filesystem |
+| 用户要求并行跟踪多个 coding 子任务或多个 Codex 会话 | 使用 sessions_spawn 创建子会话分别下发指令，定期汇总各会话状态并输出统一看板摘要 | sessions_spawn, sessions_list, sessions_send, subagents | agent |
+| 用户要求补充外部的 vibe coding 最佳实践、社区动态或相关资料 | 按需执行网页搜索与抓取，提炼与当前任务相关的最佳实践、故障处理经验或规范更新 | web_search, web_fetch | network |
+| 用户要求将监控策略做成稳定可复用的长期运行工作流 | 固化为 cron 计划任务，设置执行频率、日志落盘、重试和幂等规则，并避免高风险自动外发 | cron, write, read | schedule, filesystem |
