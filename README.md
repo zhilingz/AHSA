@@ -2,181 +2,54 @@
 
 [中文说明](./README.zh.md)
 
-## abstract
-
 AHSA means Ad Hoc Sandboxed Agent.
 
-It is a research prototype for zero-trust execution of AI agent skills.
+This project explores a simple idea: an agent task should run only with the permissions it actually needs.
 
-The core idea is:
-
-- a concrete task only needs a strict subset of full system permissions
-- this subset can be approximated from execution traces
-- later executions should be constrained by that task-specific profile
-
-AHSA uses 3 stages:
-
-1. trace run
-2. profile generation
-3. sandboxed execution
-
-## vision
-
-The long-term goal of AHSA is not only to build a local prototype.
-
-The larger goal is to make security boundaries explicit for the whole ClawHub ecosystem.
-
-Every skill on ClawHub should eventually include a structured safety description:
+The long-term goal is larger than this prototype. Every skill on ClawHub should eventually declare its security boundary in a structured form:
 
 - `Situation`
 - `Action`
 - `Permission`
 - `Scope`
 
-This makes the intended security boundary of each skill visible, reviewable, and enforceable.
+This would make skill behavior easier to review, easier to compare, and easier to enforce. To make that work at ecosystem scale, OpenClaw needs official support in two places:
 
-The expected benefits are:
+- ClawHub should require or standardize the `Situation | Action | Permission | Scope` layer
+- OpenClaw should enforce permissions at runtime with low-level checks before execution
 
-- clearer security expectations for users
-- lower ambiguity during skill installation and execution
-- earlier risk discovery in third-party skills
-- better alignment between natural-language workflow intent and runtime permissions
+## what this repo contains
 
-This cannot be solved only by individual skill authors.
+- `scraper.py`
+  fetches skill metadata and `SKILL.md` files from ClawHub
 
-It needs to be pushed by OpenClaw at the platform level:
+- `cluster_compiler.py`
+  reads grouped skill data and asks an LLM to generate:
+  - workflow markdown
+  - policy json
 
-- ClawHub should standardize and require the `Situation | Action | Permission | Scope` layer
-- OpenClaw should add low-level permission checking in the runtime so these boundaries are enforced before execution
+- `security_interceptor.py`
+  enforces file, command, and generic capability checks at runtime
 
-Without official platform support, policy documents remain descriptive only.
+## how it works
 
-With official support, they become enforceable execution contracts.
+The research flow is:
 
-## problem
+1. collect skill or task data
+2. generate a task or cluster policy
+3. use the policy to gate runtime operations
 
-Modern agents can read files, run commands, call tools, and access external services.
+The intended security model is:
 
-This creates 3 major risks:
+- collect traces or grouped skill descriptions
+- infer a task-specific permission profile
+- block operations that exceed this profile
 
-- malicious third-party skills
-- prompt injection
-- model planning errors
+The current code is a minimal prototype of that direction.
 
-The root issue is over-privilege:
+## capabilities
 
-- task-specific required permissions are smaller than full system permissions
-- current agent frameworks usually run with much broader authority
-
-AHSA addresses this by moving security control from prompt-only constraints to code-level enforcement.
-
-## research questions
-
-### formal target
-
-Given:
-
-- task `T`
-- agent `A`
-- full capability set `C`
-
-AHSA tries to approximate a task-specific capability profile `P(T, A)`, where:
-
-- `P(T, A) ⊆ C`
-- `P(T, A)` contains only the permissions required to complete `T`
-
-### core questions
-
-- how to collect representative traces for one task
-- how to convert traces into a stable capability profile
-- how to enforce the profile at runtime with acceptable overhead
-- how to reduce false positives and false negatives
-
-## architecture
-
-AHSA has 2 logical layers:
-
-- policy layer
-- enforcement layer
-
-### policy layer
-
-The policy layer:
-
-- collects grouped skill or task data
-- extracts workflow structure
-- maps workflow to `Situation | Action | Permission | Scope`
-- compiles the result as policy json
-
-### enforcement layer
-
-The enforcement layer:
-
-- checks file access against path rules
-- checks command execution against restricted command rules
-- checks generic capabilities against target scope rules
-- blocks out-of-profile operations
-- writes audit records for pass and block
-
-## three-stage mechanism
-
-### phase 1: trace run
-
-Run the task in a controlled environment and record:
-
-- tool calls
-- file reads and writes
-- network requests
-- command execution
-- data flow between input and output resources
-
-### phase 2: profile generation
-
-Convert trace results into a capability profile:
-
-- aggregate observed actions
-- generalize exact resources into reusable scope patterns
-- remove redundant or clearly unrelated permissions
-
-Example policy shape:
-
-```json
-{
-  "cluster_type": "ai_coding_workflow",
-  "permissions": {
-    "file_system": {
-      "default_action": "deny",
-      "rules": [
-        {
-          "method": ["read", "edit", "write"],
-          "path_glob": ["./**/*"]
-        }
-      ]
-    },
-    "exec": {
-      "allowed": true,
-      "restricted_cmds": ["rm -rf", "mkfs"]
-    }
-  }
-}
-```
-
-### phase 3: sandboxed execution
-
-Before each runtime action:
-
-- normalize the target
-- check whether it is inside the profile
-- allow, block, or escalate
-
-Current prototype supports:
-
-- file system interception
-- command interception
-- generic capability checks
-- audit logging
-
-## capability taxonomy
+The policy vocabulary used in this project includes:
 
 - file system: `read`, `write`, `edit`
 - compute: `exec`, `process`
@@ -186,79 +59,37 @@ Current prototype supports:
 - agent: `sessions_spawn`, `sessions_list`, `sessions_send`, `subagents`
 - system: `gateway`, `memory_search`, `memory_get`
 
-## key challenges
-
-### incomplete trace coverage
-
-A limited number of runs may miss legitimate actions.
-
-Possible directions:
-
-- diversify task inputs
-- estimate trace coverage
-- generalize from exact resources to semantic scope
-- update profiles under supervision
-
-### profile poisoning
-
-If trace collection runs in a polluted environment, the generated profile may inherit malicious permissions.
-
-Possible directions:
-
-- use isolated trace environments
-- review profiles manually
-- compare profile output against task prior constraints
-- cross-check independent traces
-
-### residual indirect injection
-
-Even when all single actions are allowed, an attacker may still abuse legal steps to achieve a malicious goal.
-
-Possible directions:
-
-- constrain action sequences
-- track input-to-output data flow
-- combine with input-layer injection defense
-- verify consistency between current action and original task intent
-
-## expected contributions
-
-### research
-
-- a formal task-specific capability profile concept for agents
-- a complete trace-to-profile-to-sandbox pipeline
-- an evaluation frame for profile precision and coverage
-- a security-oriented dataset for skill and capability analysis
-
-### engineering
-
-- a ClawHub skill scraper
-- an llm-driven profile compiler
-- a runtime security interceptor
-- an auditable execution boundary for agent systems
-
-## files
-
-- `scraper.py`: fetch skill metadata and `SKILL.md` files from ClawHub
-- `cluster_compiler.py`: read grouped skill json and use an LLM to generate workflow markdown and policy json
-- `security_interceptor.py`: enforce file, command, and capability policy before runtime execution
-
-## examples
+## examples in this repo
 
 This repository includes checked-in runtime examples under `examples/`.
 
-- `examples/compiler_input/`: one grouped skill input file
-- `examples/compiler_run/`: one workflow markdown and one policy json generated from that input
-- `examples/interceptor_run/`: one test policy, one audit log, and one block/pass result file
-- `examples/scraper_run/output/`: one small scraped dataset with skill markdown, descriptions, and indexes
+- `examples/compiler_input/`
+  sample grouped skill input
 
-## env
+- `examples/compiler_run/`
+  sample compiler output
+
+- `examples/interceptor_run/`
+  sample interceptor input, normalized policy, result, and audit log
+
+- `examples/scraper_run/output/`
+  sample scraped skills, descriptions, and indexes
+
+Useful example files:
+
+- `examples/compiler_run/query_results_codex_vibe_workflow.md`
+- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
+- `examples/interceptor_run/policy.json`
+- `examples/interceptor_run/normalized_policy.json`
+- `examples/interceptor_run/result.json`
+- `examples/interceptor_run/audit.jsonl`
+- `examples/scraper_run/output/index.json`
+
+## environment
 
 You must configure the LLM endpoint yourself.
 
 The code does not include any default API base URL or API key.
-
-Set all required variables before running the compiler:
 
 ```bash
 export OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
@@ -272,32 +103,16 @@ export SKILL_CLUSTERING_MODEL=google/gemini-3.1-flash-lite-preview
 python3 scraper.py -n 100 --output .
 ```
 
-Outputs:
+Expected outputs:
 
 - `output/skills/*.md`
 - `output/descriptions/*.json`
 - `output/index.json`
 - `output/index.csv`
 
-Expected example structure:
-
-```text
-examples/scraper_run/output/
-├── descriptions/
-├── skills/
-├── index.csv
-└── index.json
-```
-
-Included example files:
-
-- `examples/scraper_run/output/skills/self-improving-agent.md`
-- `examples/scraper_run/output/descriptions/self-improving-agent.json`
-- `examples/scraper_run/output/index.json`
-
 ## run compiler
 
-Input json:
+Input json format:
 
 ```json
 {
@@ -318,12 +133,7 @@ Run:
 python3 cluster_compiler.py --input /path/to/skills --output /path/to/generated
 ```
 
-Outputs:
-
-- `generated/*.md`
-- `generated/*.policy.json`
-
-Expected output shape:
+Expected outputs:
 
 - one markdown file with:
   - `cluster_type`
@@ -334,20 +144,14 @@ Expected output shape:
   - `cluster_type`
   - `permissions`
 
-Included example files:
-
-- `examples/compiler_input/query_results_codex_vibe_workflow.json`
-- `examples/compiler_run/query_results_codex_vibe_workflow.md`
-- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
-- `examples/compiler_run/notes.txt`
-
-Current note:
+Note:
 
 - compiler output depends on external model availability
-- one live run failed with upstream `502`
-- the checked-in `compiler_run` files are from a successful run of the same input
+- the checked-in `examples/compiler_run/` files are a successful sample run
 
 ## run interceptor
+
+Run:
 
 ```bash
 python3 - <<'PY'
@@ -357,13 +161,17 @@ from security_interceptor import PolicyEngine, SecurityInterceptionError
 root = Path(".").resolve()
 path = root / "examples" / "compiler_run" / "query_results_codex_vibe_workflow.policy.json"
 engine = PolicyEngine.from_file(path, project_root=root, audit_log_path=str(root / "examples" / "interceptor_run" / "audit.jsonl"))
+
 print(engine.check_file("read", "README.md"))
 print(engine.check_exec("python3 -V"))
 print(engine.check_capability("message", "feishu:group1"))
+print(engine.check_capability("web_search", "https://example.com"))
+
 try:
     engine.check_file("read", "../proposal.md")
 except SecurityInterceptionError as e:
     print(e.to_dict())
+
 try:
     engine.check_exec("rm -rf /tmp/x")
 except SecurityInterceptionError as e:
@@ -371,26 +179,15 @@ except SecurityInterceptionError as e:
 PY
 ```
 
-Expected result shape:
+Expected results:
 
-- allowed file read returns `{"method": "...", "path": "..."}`
-- allowed command returns `{"command": "..."}`
-- allowed capability returns `{"capability": "...", "target": "..."}`
+- allowed file read returns `method` and `path`
+- allowed command returns `command`
+- allowed capability returns `capability` and `target`
 - blocked operations return:
   - `error`
   - `capability`
   - `reason`
   - `target`
 
-Included example files:
-
-- `examples/interceptor_run/policy.json`
-- `examples/interceptor_run/normalized_policy.json`
-- `examples/interceptor_run/result.json`
-- `examples/interceptor_run/audit.jsonl`
-
-This example uses the compiled policy from:
-
-- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
-
-The interceptor reads the compiler output policy and normalizes it into the runtime enforcement schema before checking operations.
+The interceptor reads the compiler policy, normalizes it into runtime enforcement schema, and then applies checks.

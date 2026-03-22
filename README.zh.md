@@ -2,254 +2,94 @@
 
 [English](./README.md)
 
-## 摘要
-
 AHSA 的全称是 Ad Hoc Sandboxed Agent。
 
-它是一个面向 AI 智能体技能安全的零信任执行研究原型。
+这个项目研究的是一个简单但重要的问题：AI agent 在执行具体任务时，应该只拥有完成该任务真正需要的权限。
 
-核心思想是：
-
-- 一个具体任务实际需要的权限，只是系统全量权限的严格子集
-- 这个子集可以通过执行轨迹近似推断
-- 后续正式执行应当被约束在该任务专属的能力边界内
-
-AHSA 分为 3 个阶段：
-
-1. trace run
-2. profile generation
-3. sandboxed execution
-
-## 项目愿景
-
-AHSA 的目标不只是做一个本地研究原型。
-
-更大的目标是为整个 ClawHub 生态建立显式的技能安全边界描述。
-
-理想状态下，ClawHub 上的每一个 skill 都应该补充一层结构化安全说明：
+这个原型的长期目标不只是本地验证，而是推动整个 ClawHub 生态为每个 skill 增加一层结构化安全边界描述：
 
 - `Situation`
 - `Action`
 - `Permission`
 - `Scope`
 
-这样每个 skill 的预期安全边界就能被清楚描述、被审查、也能被后续机制执行。
+这样可以让 skill 的行为边界更容易被理解、审查和执行。要让这件事真正落地，必须依赖 OpenClaw 官方推动两件事：
 
-预期价值包括：
+- ClawHub 需要标准化或要求 `Situation | Action | Permission | Scope`
+- OpenClaw 需要在运行时加入底层权限检查机制，在执行前做真正的边界校验
 
-- 让用户更清楚 skill 的安全边界
-- 降低 skill 安装和运行时的权限歧义
-- 更早发现第三方 skill 中的风险
-- 让自然语言工作流和底层运行权限建立更明确的对应关系
+## 项目内容
 
-这件事不能只靠单个 skill 作者自发完成。
+- `scraper.py`
+  从 ClawHub 抓取 skill 元数据和 `SKILL.md`
 
-它必须由 OpenClaw 官方在平台层面推动：
+- `cluster_compiler.py`
+  读取分组 skill 数据，并调用 LLM 生成：
+  - workflow markdown
+  - policy json
 
-- ClawHub 需要标准化并推动 `Situation | Action | Permission | Scope` 这一层
-- OpenClaw 需要在底层增加权限检查机制，在执行前真正校验这些边界
+- `security_interceptor.py`
+  在运行时执行文件、命令和通用 capability 拦截
 
-如果没有官方平台支持，这些 policy 文档只是一层描述。
+## 核心流程
 
-如果有官方支持，它们才能成为真正可执行的运行时安全约束。
+研究链路是：
 
-## 问题定义
+1. 收集 skill 或任务数据
+2. 生成任务或技能簇的 policy
+3. 用 policy 约束后续运行
 
-现代 AI agent 可以读文件、执行命令、调用工具、访问外部服务。
+目标安全模型是：
 
-这带来 3 类核心风险：
+- 收集轨迹或分组 skill 描述
+- 推断任务专属权限画像
+- 阻断超出画像边界的运行时操作
 
-- 恶意第三方技能
-- prompt injection
-- 模型规划错误
-
-根本问题是权限过宽：
-
-- 任务所需权限远小于系统全量权限
-- 但现有 agent 框架通常以更大的权限运行
-
-AHSA 的目标是把安全边界从 prompt 级软约束，移动到代码级硬约束。
-
-## 研究问题
-
-### 形式化目标
-
-给定：
-
-- 任务 `T`
-- 智能体 `A`
-- 全能力集合 `C`
-
-AHSA 希望近似得到一个任务专属能力画像 `P(T, A)`，满足：
-
-- `P(T, A) ⊆ C`
-- `P(T, A)` 只包含完成任务 `T` 所需权限
-
-### 核心问题
-
-- 如何收集一个任务的代表性执行轨迹
-- 如何把轨迹转换成稳定的 capability profile
-- 如何在运行时高效执行 profile 约束
-- 如何降低误拦截和漏拦截
-
-## 架构
-
-AHSA 有 2 层：
-
-- policy layer
-- enforcement layer
-
-### policy layer
-
-这一层负责：
-
-- 收集分组后的 skill 或任务数据
-- 提取 workflow 结构
-- 将 workflow 映射为 `Situation | Action | Permission | Scope`
-- 编译为 policy json
-
-### enforcement layer
-
-这一层负责：
-
-- 按路径规则检查文件访问
-- 按黑名单和开关检查命令执行
-- 按目标范围检查通用 capability
-- 阻断超出 profile 的操作
-- 对 pass 和 block 写审计日志
-
-## 三阶段机制
-
-### phase 1: trace run
-
-在受控环境中执行任务并记录：
-
-- tool 调用
-- 文件读写
-- 网络请求
-- 命令执行
-- 输入和输出之间的数据流
-
-### phase 2: profile generation
-
-从轨迹生成 capability profile：
-
-- 聚合观测到的动作
-- 将精确资源泛化为可复用的 scope 模式
-- 移除冗余或明显无关的权限
-
-示例 policy 结构：
-
-```json
-{
-  "cluster_type": "ai_coding_workflow",
-  "permissions": {
-    "file_system": {
-      "default_action": "deny",
-      "rules": [
-        {
-          "method": ["read", "edit", "write"],
-          "path_glob": ["./**/*"]
-        }
-      ]
-    },
-    "exec": {
-      "allowed": true,
-      "restricted_cmds": ["rm -rf", "mkfs"]
-    }
-  }
-}
-```
-
-### phase 3: sandboxed execution
-
-每次运行时操作发生前：
-
-- 规范化目标
-- 检查是否在 profile 内
-- 执行 allow、block 或 escalate
-
-当前原型已经支持：
-
-- 文件系统拦截
-- 命令拦截
-- 通用 capability 检查
-- 审计日志
+当前仓库是这个方向的最小原型。
 
 ## 权限分类
 
+当前项目使用的权限词表包括：
+
 - 文件系统：`read`, `write`, `edit`
 - 计算执行：`exec`, `process`
-- 网络浏览：`web_search`, `web_fetch`, `browser`
+- 网络：`web_search`, `web_fetch`, `browser`
 - 多媒体：`image`, `pdf`, `canvas`, `tts`
 - 调度通信：`cron`, `message`, `nodes`
-- 智能体能力：`sessions_spawn`, `sessions_list`, `sessions_send`, `subagents`
-- 系统能力：`gateway`, `memory_search`, `memory_get`
+- 智能体：`sessions_spawn`, `sessions_list`, `sessions_send`, `subagents`
+- 系统：`gateway`, `memory_search`, `memory_get`
 
-## 核心挑战
+## 仓库内示例
 
-### 轨迹覆盖不完整
+仓库内已经包含运行后的示例结果，放在 `examples/` 下。
 
-有限次运行可能漏掉合法操作。
+- `examples/compiler_input/`
+  分组 skill 输入样例
 
-可行方向：
+- `examples/compiler_run/`
+  compiler 输出样例
 
-- 使用更多样化输入
-- 估计轨迹覆盖率
-- 从精确资源泛化到语义 scope
-- 在监督下动态更新 profile
+- `examples/interceptor_run/`
+  interceptor 输入、归一化 policy、结果和审计日志
 
-### profile 污染
+- `examples/scraper_run/output/`
+  scraper 抓取结果样例
 
-如果 trace 环境被污染，生成的 profile 可能继承恶意权限。
+可直接查看的文件：
 
-可行方向：
-
-- 使用隔离的 trace 环境
-- 人工审查 profile
-- 用任务先验约束校验 profile
-- 多次独立 trace 交叉验证
-
-### 间接注入残余风险
-
-即使每一步单独都合法，攻击者仍可能通过合法步骤组合完成恶意目标。
-
-可行方向：
-
-- 约束操作序列模式
-- 跟踪输入到输出的数据流
-- 与输入层 injection 防御协同
-- 验证当前动作是否与原始任务语义一致
-
-## 预期贡献
-
-### 研究贡献
-
-- 面向 agent 的任务专属 capability profile 概念
-- trace 到 profile 再到 sandbox 的完整链路
-- profile 精度与覆盖率的评估框架
-- skill 与 capability 分析数据集
-
-### 工程贡献
-
-- ClawHub 技能抓取器
-- 基于 LLM 的 policy 编译器
-- 运行时安全拦截器
-- 可审计的 agent 执行边界
-
-## 文件
-
-- `scraper.py`: 抓取 ClawHub skill 元数据和 `SKILL.md`
-- `cluster_compiler.py`: 读取分组 skill json，用 LLM 生成 workflow markdown 和 policy json
-- `security_interceptor.py`: 在运行前执行文件、命令和 capability 拦截
+- `examples/compiler_run/query_results_codex_vibe_workflow.md`
+- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
+- `examples/interceptor_run/policy.json`
+- `examples/interceptor_run/normalized_policy.json`
+- `examples/interceptor_run/result.json`
+- `examples/interceptor_run/audit.jsonl`
+- `examples/scraper_run/output/index.json`
 
 ## 环境变量
 
-LLM 接口地址需要由用户自行配置。
+LLM 接口必须由用户自己配置。
 
-代码中不再内置默认的 `OPENAI_BASE_URL` 或 `OPENAI_API_KEY`。
-
-运行 compiler 前需要显式设置：
+代码中不包含默认的 API 地址或 API key。
 
 ```bash
 export OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
@@ -263,7 +103,7 @@ export SKILL_CLUSTERING_MODEL=google/gemini-3.1-flash-lite-preview
 python3 scraper.py -n 100 --output .
 ```
 
-输出：
+预期输出：
 
 - `output/skills/*.md`
 - `output/descriptions/*.json`
@@ -293,12 +133,25 @@ python3 scraper.py -n 100 --output .
 python3 cluster_compiler.py --input /path/to/skills --output /path/to/generated
 ```
 
-输出：
+预期输出：
 
-- `generated/*.md`
-- `generated/*.policy.json`
+- 一个 markdown 文件，包含：
+  - `cluster_type`
+  - `query`
+  - `workflow`
+  - `Situation | Action | Permission | Scope`
+- 一个 policy json 文件，包含：
+  - `cluster_type`
+  - `permissions`
+
+说明：
+
+- compiler 结果依赖外部模型服务
+- 仓库中 `examples/compiler_run/` 是一次成功运行后的样例结果
 
 ## 运行 interceptor
+
+运行：
 
 ```bash
 python3 - <<'PY'
@@ -308,13 +161,17 @@ from security_interceptor import PolicyEngine, SecurityInterceptionError
 root = Path(".").resolve()
 path = root / "examples" / "compiler_run" / "query_results_codex_vibe_workflow.policy.json"
 engine = PolicyEngine.from_file(path, project_root=root, audit_log_path=str(root / "examples" / "interceptor_run" / "audit.jsonl"))
+
 print(engine.check_file("read", "README.md"))
 print(engine.check_exec("python3 -V"))
 print(engine.check_capability("message", "feishu:group1"))
+print(engine.check_capability("web_search", "https://example.com"))
+
 try:
     engine.check_file("read", "../proposal.md")
 except SecurityInterceptionError as e:
     print(e.to_dict())
+
 try:
     engine.check_exec("rm -rf /tmp/x")
 except SecurityInterceptionError as e:
@@ -322,15 +179,15 @@ except SecurityInterceptionError as e:
 PY
 ```
 
-示例文件：
+预期结果：
 
-- `examples/interceptor_run/policy.json`
-- `examples/interceptor_run/normalized_policy.json`
-- `examples/interceptor_run/result.json`
-- `examples/interceptor_run/audit.jsonl`
+- 合法文件访问返回 `method` 和 `path`
+- 合法命令执行返回 `command`
+- 合法 capability 返回 `capability` 和 `target`
+- 被拦截操作返回：
+  - `error`
+  - `capability`
+  - `reason`
+  - `target`
 
-这个示例直接使用：
-
-- `examples/compiler_run/query_results_codex_vibe_workflow.policy.json`
-
-拦截器会先读取编译器输出的原始 policy，再在运行时归一化为 enforcement schema 后执行检查。
+interceptor 会先读取 compiler 输出的 policy，再在运行时归一化为 enforcement schema 后执行检查。
