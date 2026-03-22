@@ -20,6 +20,39 @@ AHSA 分为 3 个阶段：
 2. profile generation
 3. sandboxed execution
 
+## 项目愿景
+
+AHSA 的目标不只是做一个本地研究原型。
+
+更大的目标是为整个 ClawHub 生态建立显式的技能安全边界描述。
+
+理想状态下，ClawHub 上的每一个 skill 都应该补充一层结构化安全说明：
+
+- `Situation`
+- `Action`
+- `Permission`
+- `Scope`
+
+这样每个 skill 的预期安全边界就能被清楚描述、被审查、也能被后续机制执行。
+
+预期价值包括：
+
+- 让用户更清楚 skill 的安全边界
+- 降低 skill 安装和运行时的权限歧义
+- 更早发现第三方 skill 中的风险
+- 让自然语言工作流和底层运行权限建立更明确的对应关系
+
+这件事不能只靠单个 skill 作者自发完成。
+
+它必须由 OpenClaw 官方在平台层面推动：
+
+- ClawHub 需要标准化并推动 `Situation | Action | Permission | Scope` 这一层
+- OpenClaw 需要在底层增加权限检查机制，在执行前真正校验这些边界
+
+如果没有官方平台支持，这些 policy 文档只是一层描述。
+
+如果有官方支持，它们才能成为真正可执行的运行时安全约束。
+
 ## 问题定义
 
 现代 AI agent 可以读文件、执行命令、调用工具、访问外部服务。

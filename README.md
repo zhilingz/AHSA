@@ -20,6 +20,39 @@ AHSA uses 3 stages:
 2. profile generation
 3. sandboxed execution
 
+## vision
+
+The long-term goal of AHSA is not only to build a local prototype.
+
+The larger goal is to make security boundaries explicit for the whole ClawHub ecosystem.
+
+Every skill on ClawHub should eventually include a structured safety description:
+
+- `Situation`
+- `Action`
+- `Permission`
+- `Scope`
+
+This makes the intended security boundary of each skill visible, reviewable, and enforceable.
+
+The expected benefits are:
+
+- clearer security expectations for users
+- lower ambiguity during skill installation and execution
+- earlier risk discovery in third-party skills
+- better alignment between natural-language workflow intent and runtime permissions
+
+This cannot be solved only by individual skill authors.
+
+It needs to be pushed by OpenClaw at the platform level:
+
+- ClawHub should standardize and require the `Situation | Action | Permission | Scope` layer
+- OpenClaw should add low-level permission checking in the runtime so these boundaries are enforced before execution
+
+Without official platform support, policy documents remain descriptive only.
+
+With official support, they become enforceable execution contracts.
+
 ## problem
 
 Modern agents can read files, run commands, call tools, and access external services.
